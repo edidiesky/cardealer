@@ -1,5 +1,5 @@
 import React from "react";
-import Styled from "styled-components/macro";
+import styled from "styled-components";
 import { FaStarHalfAlt, FaStar } from "react-icons/fa";
 import { BsStar, BsStarFill } from "react-icons/bs";
 
@@ -20,18 +20,13 @@ export default function Rating({ value, type }) {
   return (
     <RatingContent>
       <div className="RatingContainer">
-        {/* <span>{value >= 1 ? <FaStar/>: value< 0.5? <FaStarHalfAlt/> : <FaStar/> }</span>
-	          <span>{value >= 2 ? <FaStar/>: value<1.5? <FaStarHalfAlt/> : <FaStar/> }</span>
-	          <span>{value >= 3 ? <FaStar/>: value<2.5? <FaStarHalfAlt/> : <FaStar/> }</span>
-	          <span>{value >= 4 ? <FaStar/>: value<3.5? <FaStarHalfAlt/> : <FaStar/> }</span>
-	          <span>{value >= 5 ? <FaStar/>: value<4.5? <FaStarHalfAlt/> : <FaStar/> }</span>
-	           */}
+      
       </div>
     </RatingContent>
   );
 }
 
-const RatingContent = Styled.div`
+const RatingContent = styled.div`
 .RatingContainer {
 	gap:.5rem;
 	display:flex;
