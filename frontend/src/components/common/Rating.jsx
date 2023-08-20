@@ -19,9 +19,6 @@ export default function Rating({ value, type }) {
   // }
   return (
     <RatingContent>
-      <div className="RatingContainer">
-      
-      </div>
     </RatingContent>
   );
 }
