@@ -7,7 +7,13 @@ dotenv.config();
 
 const app = express();
 import { errorHandler, NotFound } from "./middleware/error-handler.js";
-
+app.use(
+  cors({
+    origin: process.env.WEB_ORIGIN,
+    methods: ["POST", "PUT", "DELETE", "GET"],
+    credentials: true,
+  })
+);
 import mongoose from "mongoose";
 
 // middlewares
@@ -25,13 +31,7 @@ app.use("/api/v1/auth", userRoute);
 app.use("/api/v1/order", orderRoute);
 app.use("/api/v1/upload", uploadRoute);
 const __dirname = path.resolve();
-app.use(
-  cors({
-    origin: process.env.WEB_ORIGIN,
-    methods: ["POST", "PUT", "DELETE", "GET"],
-    credentials: true,
-  })
-);
+
 app.use(
   "/public/uploads",
   express.static(path.join(__dirname, "/public/uploads"))
