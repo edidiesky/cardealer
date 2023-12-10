@@ -34,7 +34,6 @@ const LabelContainer = styled.label`
 
   input {
     height: 6rem;
-    border-radius: 6px;
     background: var(--white);
     padding: 0 2.4rem;
     width: 100%;

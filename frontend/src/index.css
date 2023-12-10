@@ -92,7 +92,7 @@ html {
 }
 
 .editBtn {
-  border-radius: 40px;
+  /* border-radius: 40px; */
   font-family: "Barlow", sans-serif;
   border: none;
   outline: none;
@@ -239,7 +239,7 @@ h1 {
   padding-left: 6rem;
   padding-right: 6rem;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
   background: #ccc;
@@ -252,7 +252,7 @@ h1 {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--dark-1);
-}
+} */
 .a:hover {
   text-decoration: underline;
 }

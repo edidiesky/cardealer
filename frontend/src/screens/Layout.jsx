@@ -10,13 +10,14 @@ import { SearchModal } from "../components/modals";
 export default function Layout() {
   return (
     <LayoutContainer>
-      {/* <SearchModal />
       <HeaderIndex />
+      <Outlet />
+      <SearchModal />
+
       <AlertModal />
       <Delete />
-      <Outlet />
       <Newsletter />
-      <Footer /> */}
+      <Footer />
     </LayoutContainer>
   );
 }

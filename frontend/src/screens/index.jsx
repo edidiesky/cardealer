@@ -1,13 +1,13 @@
 import Home from "./Home";
 import Layout from "./Layout";
-// import ProductList from "./ProductList";
-// import Details from "./Details";
-// import Cart from "./Cart";
+import ProductList from "./ProductList";
+import Details from "./Details";
+import Cart from "./Cart";
 // import News from "./News";
 // import Contact from "./Contact";
 // import Checkout from "./Checkout";
-// import Login from './Login';
-// import Register from './Register'
+import Login from './Login';
+import Register from './Register'
 // import Profile from './Profile'
 // import Order from './Order'
 // import {ProtectRoute} from './ProtectRoute'
@@ -22,14 +22,14 @@ export {
     // Search,
     Home,
     Layout,
-    // ProductList,
-    // Details,
-    // Cart,
+    ProductList,
+    Details,
+    Cart,
     // News,
     // Contact,
     // Checkout,
-    // Register,
-    // Login,
+    Register,
+    Login,
     // ProtectRoute,
     // ProtectAdmin,
     // Profile,

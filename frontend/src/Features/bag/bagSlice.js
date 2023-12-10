@@ -31,7 +31,9 @@ export const addProductToBag = createAsyncThunk(
   async ({ id, quantity }, thunkAPI) => {
     try {
       const { size } = thunkAPI.getState().product;
-      const { data } = await axios.get(`/api/v1/product/${id}`);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/product/${id}`
+      );
       const { product } = data;
 
       return {

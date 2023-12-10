@@ -4,13 +4,13 @@ import { Route, Routes } from "react-router-dom";
 import {
   Home,
   Layout,
-  // ProductList,
-  // Details,
-  // Cart,
-  // News, 
+  ProductList,
+  Details,
+  Cart,
+  // News,
   // Contact,
-  // Register,
-  // Login,
+  Register,
+  Login,
   // ProtectRoute,
   // Profile,
   // About,
@@ -40,8 +40,17 @@ export default function App() {
 
   const [height, setHeight] = useState(0);
   return (
-    <div>
-      <Home />
+    <div className="based" style={{ height }}>
+      <Routes>
+        <Route path={"/"} element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path={"car-dealership/cars/:id"} element={<Details />} />
+          <Route path={"car-dealership/inventory"} element={<ProductList />} />
+          <Route path={"car-dealership/cart/:id"} element={<Cart />} />
+          <Route path={"car-dealership/auth/login"} element={<Login />} />
+          <Route path={"car-dealership/auth/register"} element={<Register />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

@@ -120,7 +120,7 @@ export default function Auth() {
                   />
                 );
               })}
-              <button className="editBtn family2">SignUp with Avanda</button>
+              <button className="editBtn ">SignUp with Avanda</button>
               <p className="family1">
                 Not yet a Member?{" "}
                 <Link to={"/car-dealership/auth/register"}>Register Now</Link>
@@ -149,7 +149,7 @@ const AuthContent = styled.div`
     .authContentForm {
       margin: 1rem auto;
       display: flex;
-      width: 50%;
+      width: 40%;
       align-items: center;
       padding: 2rem 5.5rem;
       flex-direction: column;
@@ -189,8 +189,8 @@ const AuthContent = styled.div`
       }
       p {
         font-size: 1.4rem;
-        font-weight: 600;
-        color: var(--grey-2);
+        font-weight: 400;
+        color: var(--grey-1);
         width: 100%;
         text-align: center;
 
@@ -211,13 +211,12 @@ const AuthContent = styled.div`
           width: 100%;
           border: none;
           outline: none;
-          padding: 1.7rem 3rem;
-          font-size: 1.8rem;
+          padding: 1.9rem 3rem;
+          font-size: 1.6rem;
           margin: 1.4rem 0;
           font-weight: 600;
           color: #fff;
           background-color: var(--blue-1);
-          border-radius: 45px;
           transition: all 0.5s;
           text-transform: capitalize;
           cursor: pointer;

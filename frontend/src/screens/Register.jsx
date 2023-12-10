@@ -181,7 +181,7 @@ const AuthContent = styled.div`
     .authContentForm {
       margin: 3rem auto;
       display: flex;
-      width: 70%;
+      width: 40%;
       align-items: center;
       padding: 2rem 5.5rem;
       flex-direction: column;
@@ -192,7 +192,7 @@ const AuthContent = styled.div`
         width: 50%;
       }
       @media (max-width: 780px) {
-        width: 86%;
+        width: 60%;
         padding: 4rem 3rem;
       }
       @media (max-width: 480px) {
@@ -243,12 +243,11 @@ const AuthContent = styled.div`
           border: none;
           outline: none;
           padding: 1.7rem 3rem;
-          font-size: 1.8rem;
+          font-size: 1.6rem;
           margin: 1.4rem 0;
           font-weight: 600;
           color: #fff;
           background-color: var(--blue-1);
-          border-radius: 45px;
           transition: all 0.5s;
           text-transform: capitalize;
           cursor: pointer;
