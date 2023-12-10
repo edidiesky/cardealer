@@ -48,7 +48,7 @@ const MessageContent = styled.div`
   left: 50%;
   transform: translateX(-50%);
   top: 20px;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 600;
   color: #fff;
   transition: all 0.6s;
@@ -82,7 +82,7 @@ const MessageContent = styled.div`
       }
     }
     svg {
-      font-size: 20px;
+      font-size: 2rem;
       color: var(--grey-2);
     }
   }

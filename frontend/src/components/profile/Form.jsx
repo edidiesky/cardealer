@@ -238,18 +238,35 @@ export default function ProfileForm() {
 }
 
 const ProfileFormContainer = styled.div`
-  width: 100%;
-  border: 1px solid var(--grey-2);
+  width: 46%;
   padding: 2rem;
   padding-top: 4rem;
+  @media (max-width: 780px) {
+    width: 50%;
+  }
+  @media (max-width: 580px) {
+    width: 90%;
+  }
   h2 {
     padding-bottom: 2rem;
-    border-bottom: 1px solid var(--grey-2);
+    /* border-bottom: 1px solid var(--grey-2); */
     text-align: start;
     width: 100%;
     font-size: 3rem;
     font-weight: 700;
     color: var(--dark-1);
+    position: relative;
+    margin-bottom: 3rem;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 70px;
+      height: 2px;
+      background: #000;
+      left: 0;
+      border-radius: 40px;
+      bottom: 2%;
+    }
   }
 
   .formWrapper {
@@ -267,7 +284,7 @@ const ProfileFormContainer = styled.div`
       .editBtn {
         border: none;
         outline: none;
-        padding: 1rem 3rem;
+        padding: 1.8rem 3rem;
         font-size: 1.5rem;
         color: var(--white);
         background-color: var(--red);
@@ -294,7 +311,7 @@ const ProfileFormContainer = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 2rem;
-      @media (max-width:780px) {
+      @media (max-width: 480px) {
         grid-template-columns: 1fr;
       }
     }

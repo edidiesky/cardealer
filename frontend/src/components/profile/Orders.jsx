@@ -17,6 +17,8 @@ export default function Orders() {
 
   return (
     <OrdersContainer>
+      
+
       {userorders?.length === 0 ? (
         <Table>
           <div className="TableTop">
@@ -29,7 +31,7 @@ export default function Orders() {
         <Table>
           <div className="TableTop">
             <div className="TableTopRight">
-              <h2>My Order List </h2>
+              <h2>My Order History </h2>
             </div>
           </div>
           <div className="TableContainer">
@@ -61,6 +63,30 @@ export default function Orders() {
 const OrdersContainer = styled.div`
   width: 100%;
   margin: 0 auto;
+  padding: 2rem;
+  padding-top: 4rem;
+
+  h2 {
+    padding-bottom: 2rem;
+    /* border-bottom: 1px solid var(--grey-2); */
+    text-align: start;
+    width: 100%;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--dark-1);
+    position: relative;
+    margin-bottom: 3rem;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 50px;
+      height: 2px;
+      background: #000;
+      left: 0;
+      border-radius: 40px;
+      bottom: 2%;
+    }
+  }
 `;
 
 const Table = styled.div`
@@ -68,7 +94,6 @@ const Table = styled.div`
   padding: 2rem 1.6rem;
   margin-top: 1rem;
   background: var(--white);
-  border: 1px solid var(--grey-2);
   padding: 2rem;
   border-radius: 5px;
   display: flex;
@@ -92,66 +117,28 @@ const Table = styled.div`
       width: 100%;
       h2 {
         padding-bottom: 2rem;
-
-        border-bottom: 1px solid var(--grey-2);
+        /* border-bottom: 1px solid var(--grey-2); */
         text-align: start;
         width: 100%;
         font-size: 3rem;
         font-weight: 700;
         color: var(--dark-1);
-      }
-    }
-
-    .TableTopLeft {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      form {
-        padding: 1.4rem 3rem;
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        background: var(--grey-3);
-        border-radius: 7px;
-
-        svg {
-          width: 2rem;
-          height: 2rem;
-          color: var(--grey);
-        }
-
-        input {
-          flex: 1;
-          border: none;
-          background: inherit;
-          font-size: 1.5rem;
-          outline: none;
-          border: none;
-          font-weight: 500;
-          color: var(--grey);
-          font-family: inherit;
-          &::placeholder {
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: var(--grey-2);
-          }
-        }
-      }
-      .addBtn {
-        border: none;
-        padding: 1.4rem 2rem;
-        font-size: 1.3rem;
-        border-radius: 4px;
-        color: #fff;
-        background: #1b3d8c;
-        font-weight: 600;
-        outline: none;
-        cursor: pointer;
-        &:hover {
-          background: var(--red);
+        position: relative;
+        margin-bottom: 3rem;
+        &::after {
+          position: absolute;
+          content: "";
+          width: 70px;
+          height: 3px;
+          background: #000;
+          left: 0;
+          border-radius: 40px;
+          bottom: 2%;
         }
       }
     }
+
+ 
   }
 
   .TableContainer {
@@ -160,9 +147,11 @@ const Table = styled.div`
     gap: 2rem;
     width: 100%;
     overflow-x: auto;
+    font-family: "Barlow", sans-serif;
+
     &::-webkit-scrollbar {
       width: 10px;
-      height: 10px;
+      height: .4rem;
       background: #f8f8f8;
       border-radius: 10px;
     }

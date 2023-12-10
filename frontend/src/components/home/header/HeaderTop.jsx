@@ -75,8 +75,8 @@ export default function HeaderTop() {
               <BiCart />
               <span className="notifSpan">{totalQuantity}</span>
             </Link>
-            <div className="authorWrapper flex gap-1 item-center">
-             
+            <div className="authorWrapper">
+              <div className="author">{username}</div>
               {userInfo?.isAdmin ? (
                 <div className="profileList">
                   <Link
@@ -108,6 +108,39 @@ export default function HeaderTop() {
                 </div>
               )}
             </div>
+            {/* <div className="authorWrapper flex gap-1 item-center">
+             
+              {userInfo?.isAdmin ? (
+                <div className="profileList">
+                  <Link
+                    target="_blank"
+                    className="link"
+                    to={"/car-dealership/profile"}
+                  >
+                    Profile
+                  </Link>
+                  <Link
+                    target="_blank"
+                    className="link"
+                    to={"/car-dealership/dashboard"}
+                  >
+                    Dashboard
+                  </Link>
+                  <div className="logOut link" onClick={handleLogOut}>
+                    Sign out
+                  </div>
+                </div>
+              ) : (
+                <div className="profileList list1">
+                  <Link target="_blank" className="link" to={"profile"}>
+                    Profile
+                  </Link>
+                  <div className="link logOut" onClick={handleLogOut}>
+                    Sign out
+                  </div>
+                </div>
+              )}
+            </div> */}
           </div>
         ) : (
           <div className="headerTopProfile">
@@ -145,6 +178,19 @@ const HeaderTopContainer = styled.div`
   align-items: center;
   background: var(--white);
   padding: 1.5rem 0;
+  .author {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 1.8rem;
+    justify-content: center;
+    font-weight: 600;
+    background: #000;
+    color: #fff;
+  }
   .headerTopWrapperContainer {
     display: flex;
     align-items: center;
@@ -207,7 +253,7 @@ const HeaderTopContainer = styled.div`
         display: none;
       }
       .link {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
         font-weight: 500;
         color: var(--dark-1);
         transition: all 0.5s;
@@ -229,7 +275,7 @@ const HeaderTopContainer = styled.div`
         position: relative;
         display: flex;
         align-items: center;
-        gap: 1.4rem;
+        gap: 3rem;
         .searchWrapper {
           display: flex;
           align-items: center;
@@ -245,28 +291,28 @@ const HeaderTopContainer = styled.div`
           &:hover .profileList {
             visibility: visible;
             opacity: 1;
-            transform: translate3d(0, 0px, 0);
+            transform: translate3d(0, 40px, 0);
           }
           .profileList {
             background: #fff;
             position: absolute;
             bottom: -250%;
-            left: -20%;
+            left: -260%;
             display: flex;
             flex-direction: column;
-            /* visibility: hidden;
-            opacity: 0; */
+            visibility: hidden;
+            opacity: 0;
             border: 1px solid rgba(0, 0, 0, 0.1);
             transform: translate3d(0, 100px, 0);
-            transition: all 0.2s;
-            min-width: 200px;
+            transition: all 0.4s;
+            min-width: 150px;
             z-index: 2341000;
             &.list1 {
               bottom: -240%;
             }
             .link {
               padding: 1.4rem 3rem;
-              font-size: 1.5rem;
+              font-size: 1.3rem;
               color: var(--dark-1);
               border-bottom: 1px solid var(--grey-3);
               font-weight: 400;
@@ -275,19 +321,6 @@ const HeaderTopContainer = styled.div`
                 background: #f7f7f7;
               }
             }
-          }
-          .author {
-            width: 4rem;
-            height: 4rem;
-            border-radius: 50%;
-            align-items: center;
-            display: flex;
-            justify-content: center;
-            font-size: 1.8rem;
-            justify-content: center;
-            font-weight: 600;
-            background: var(--text-color);
-            color: #fff;
           }
         }
         .iconWrapper {

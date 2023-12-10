@@ -15,14 +15,15 @@ import {
 import { users } from "../../data/userData";
 
 const customerData = JSON.parse(localStorage.getItem("customer"));
+const token = localStorage.getItem("token")
 
 
 const initialState = {
   isSuccess: false,
   isError: false,
-  userInfo: customerData ? customerData : null,
+  userInfo: token ? customerData : null,
   userDetails: null,
-  token: "",
+  token: token ? token : "",
   isLoading: false,
   showAlert: false,
   users: users,

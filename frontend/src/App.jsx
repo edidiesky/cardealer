@@ -7,18 +7,18 @@ import {
   ProductList,
   Details,
   Cart,
-  // News,
-  // Contact,
+  News,
+  Contact,
   Register,
   Login,
   // ProtectRoute,
-  // Profile,
-  // About,
-  // Blog,
-  // Offer,
-  // Services,
+  Profile,
+  About,
+  Blog,
+  Offer,
+  Services,
   // Order,
-  // Search,
+  Search,
 } from "./screens";
 
 // import {
@@ -49,6 +49,7 @@ export default function App() {
           <Route path={"car-dealership/cart/:id"} element={<Cart />} />
           <Route path={"car-dealership/auth/login"} element={<Login />} />
           <Route path={"car-dealership/auth/register"} element={<Register />} />
+          <Route path={"car-dealership/profile"} element={<Profile />} />
         </Route>
       </Routes>
     </div>

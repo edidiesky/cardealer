@@ -161,7 +161,7 @@ const AuthContent = styled.div`
         width: 50%;
       }
       @media (max-width: 780px) {
-        width: 86%;
+        width: 46%;
         padding: 4rem 3rem;
       }
       @media (max-width: 480px) {
