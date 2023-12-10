@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderBottom from "./HeaderBottom";
 import HeaderTop from "./HeaderTop";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import HeaderNews from "./HeaderNews";
 
 function HeaderIndex() {

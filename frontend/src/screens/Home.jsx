@@ -6,7 +6,7 @@ import SearchIndex from "../components/home/search";
 import ServicesIndex from "../components/home/services";
 import LocationIndex from "../components/home/location";
 import Blogindex from "../components/home/blog";
-import Styled from "styled-components";
+import styled from "styled-components";
 import Brandindex from "../components/home/brands";
 import ChoiceIndex from "../components/home/choice";
 import {
@@ -57,8 +57,8 @@ export default function Home() {
   );
 }
 
-const HomeContainer = Styled.div`
+const HomeContainer = styled.div`
 width:100%;
-
+min-height:100vh;
 background:#fff;
 `;

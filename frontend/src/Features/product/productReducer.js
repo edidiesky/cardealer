@@ -17,7 +17,7 @@ export const getAllProduct = createAsyncThunk(
         maxprice,
         tag,
       } = thunkAPI.getState().product;
-      let productUrl = `/api/v1/product`;
+      let productUrl = `${import.meta.env.VITE_API_BASE_URLS}/api/v1/product`;
       const config = {
         headers: {
           "content-type": "application/json",
@@ -72,7 +72,7 @@ export const getAllProductCategory = createAsyncThunk(
   "/fetch/allproductcategory",
   async (search, thunkAPI) => {
     try {
-      const { data } = await axios.get("/api/v1/product/products");
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/product/products`);
       return data.product;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -89,7 +89,7 @@ export const getSingleProductDetails = createAsyncThunk(
   "product/getProductDetails",
   async (name, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/v1/product/${name}`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/product/${name}`);
 
       return data.product;
     } catch (error) {
@@ -113,7 +113,7 @@ export const CreateSingleProductDetails = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.post(`/api/v1/product`, productData, config);
+      const { data } = await axios.post(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/product`, productData, config);
 
       return data.product;
     } catch (error) {
@@ -140,7 +140,7 @@ export const adminUpdateProduct = createAsyncThunk(
       };
       const { _id } = state.product.productDetails;
       const { data } = await axios.put(
-        `/api/v1/product/admin/${_id}`,
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/product/admin/${_id}`,
         productData,
         config
       );
@@ -168,7 +168,7 @@ export const adminDeleteProduct = createAsyncThunk(
         },
       };
       const { data } = await axios.delete(
-        `/api/v1/product/admin/${productid}`,
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/product/admin/${productid}`,
         config
       );
       return productid;
@@ -194,7 +194,7 @@ export const createReviewProduct = createAsyncThunk(
         },
       };
       const { data } = await axios.post(
-        `/api/v1/product/review/${id}`,
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/product/review/${id}`,
         Reviewdata,
         config
       );
@@ -220,7 +220,7 @@ export const getTopRatedProduct = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/v1/product/rated`, config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/product/rated`, config);
       return data.toprated;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -243,7 +243,7 @@ export const getProductStats = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/v1/product/stats`, config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/product/stats`, config);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

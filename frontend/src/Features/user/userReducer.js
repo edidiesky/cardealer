@@ -1,14 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axiosInstance from "../../utils/axiosConfig";
-
-const Registerurl = "/auth/register";
-const Loginurl = "/auth/login";
+import axios from 'axios'
+const Registerurl = `${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth/register`;
+const Loginurl = `${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth/login`;
 
 export const registerCustomer = createAsyncThunk(
   "registerUser",
   async (registerData, thunkAPI) => {
     try {
-      const { data } = await axiosInstance.post(Registerurl, registerData);
+      const { data } = await axios.post(Registerurl, registerData);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -24,7 +23,7 @@ export const loginCustomer = createAsyncThunk(
   "loginCustomer",
   async (loginData, thunkAPI) => {
     try {
-      const { data } = await axiosInstance.post(Loginurl, loginData);
+      const { data } = await axios.post(Loginurl, loginData);
       localStorage.setItem("customer", JSON.stringify(data.user));
       localStorage.setItem("customertoken", data.token);
       return data;
@@ -46,7 +45,9 @@ export const getAllCustomer = createAsyncThunk(
     try {
       const { userpage } = state.user;
 
-      const { data } = await axiosInstance.get(`/auth?page=${userpage}`);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth?page=${userpage}`
+      );
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -64,7 +65,7 @@ export const getUserStats = createAsyncThunk(
   async (name, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axiosInstance.get(`/auth/stats`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth/stats`);
       return data.usersStats;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -82,7 +83,7 @@ export const getSingleCustomer = createAsyncThunk(
   async (name, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axiosInstance.get(`/auth/admin/profile/${name}`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth/admin/profile/${name}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -101,8 +102,8 @@ export const adminUpdateCustomer = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const { _id } = state.user.userDetails;
-      const { data } = await axiosInstance.put(
-        `/auth/admin/profile/${_id}`,
+      const { data } = await axios.put(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth/admin/profile/${_id}`,
         Userformdata
       );
       return data;
@@ -123,8 +124,8 @@ export const UpdateProfile = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const { _id } = state.user.userInfo;
-      const { data } = await axiosInstance.put(
-        `/auth/profile/${_id}`,
+      const { data } = await axios.put(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth/profile/${_id}`,
         profiledata
       );
       localStorage.setItem("customer", JSON.stringify(data.updatedUser));
@@ -145,7 +146,7 @@ export const adminDeleteCustomer = createAsyncThunk(
   async (name, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axiosInstance.delete(`/auth/admin/profile/${name}`);
+      const { data } = await axios.delete(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth/admin/profile/${name}`);
       return name;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -162,7 +163,7 @@ export const handleTokenKey = createAsyncThunk(
   async (orderItems, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axiosInstance.get("/api/config/token");
+      const { data } = await axios.get("/api/config/token");
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

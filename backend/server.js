@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
+import cors from "cors";
 import cookie from "cookie-parser";
 dotenv.config();
 
@@ -23,17 +24,14 @@ app.use("/api/v1/product", productRoute);
 app.use("/api/v1/auth", userRoute);
 app.use("/api/v1/order", orderRoute);
 app.use("/api/v1/upload", uploadRoute);
-
-app.get("/api/v1/config/paypal", (req, res) => {
-  res.send(process.env.PAYPAL_CLIENT_ID);
-});
-
-app.get("/api/config/token", (req, res) => {
-  res.send(process.env.token);
-});
-
 const __dirname = path.resolve();
-
+app.use(
+  cors({
+    origin: process.env.WEB_ORIGIN,
+    methods: ["POST", "PUT", "DELETE", "GET"],
+    credentials: true,
+  })
+);
 app.use(
   "/public/uploads",
   express.static(path.join(__dirname, "/public/uploads"))
@@ -53,22 +51,11 @@ mongoose.connect(
 );
 // production mode process
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-  app.get("*", (req, res) =>
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))
-  );
-} else {
-  app.get("/", (req, res) => {
-    res.send("API is running....");
-  });
-}
 
 // Middlewares
 app.use(NotFound);
 app.use(errorHandler);
 
-app.listen(4000, () => {
+app.listen(5000, () => {
   console.log("server is listening on port 4000");
 });

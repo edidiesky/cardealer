@@ -6,7 +6,7 @@ export default function Heroindex() {
   useEffect(() => {
     gsap.to(".text1", {
       transform: "none",
-      duration: .8,
+      duration: 0.8,
       delay: 0.5,
       stagger: {
         amount: 0.5,

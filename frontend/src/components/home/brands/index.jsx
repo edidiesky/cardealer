@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 
 const data = [
   { id: 1, icon: "../images/logo-brand-1.png" },

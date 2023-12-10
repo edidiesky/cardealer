@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Styled from "styled-components";
+import styled from "styled-components";
 import { CopyRight, Footer, Newsletter } from "../components/common";
 import { Delete, AlertModal } from "../components/modals";
 import { clearProductAlert } from "../Features";
@@ -10,18 +10,18 @@ import { SearchModal } from "../components/modals";
 export default function Layout() {
   return (
     <LayoutContainer>
-      <SearchModal />
+      {/* <SearchModal />
       <HeaderIndex />
       <AlertModal />
       <Delete />
       <Outlet />
       <Newsletter />
-      <Footer />
+      <Footer /> */}
     </LayoutContainer>
   );
 }
 
-const LayoutContainer = Styled.div`
+const LayoutContainer = styled.div`
 width:100%;
 overflow:hidden;
 background:var(--white);

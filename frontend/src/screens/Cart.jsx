@@ -3,7 +3,7 @@ import Styled from "styled-components";
 
 import Cartindex from "../components/cart";
 import { useSelector, useDispatch } from "react-redux";
-import { addProductToBag, calculateBagItem, getSize } from "../Features";
+import { addProductToBag, calculateBagItem } from "../Features";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 import LoaderIndex from "../components/loaders";

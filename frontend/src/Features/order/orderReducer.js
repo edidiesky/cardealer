@@ -1,11 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axiosInstance from "../../utils/axiosConfig";
+import axios from "axios";
 
 export const createCustomersOrder = createAsyncThunk(
   "/create/order",
   async (orderData, thunkAPI) => {
     try {
-      const { data } = await axiosInstance.post("/order", orderData);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order`,
+        orderData
+      );
 
       return data.order;
     } catch (error) {
@@ -23,7 +26,7 @@ export const handleStripeCheckout = createAsyncThunk(
   async (orderItems, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axiosInstance.post("/stripe", orderItems);
+      const { data } = await axios.post("/stripe", orderItems);
 
       return data.url;
     } catch (error) {
@@ -41,7 +44,7 @@ export const handleStripeKey = createAsyncThunk(
   async (orderItems, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axiosInstance.get("/stripekey", orderItems);
+      const { data } = await axios.get("/stripekey", orderItems);
 
       return data;
     } catch (error) {
@@ -59,7 +62,7 @@ export const handlePaypalKey = createAsyncThunk(
   async (orderItems, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axiosInstance.get("/config/paypal", orderItems);
+      const { data } = await axios.get("/config/paypal", orderItems);
 
       return data;
     } catch (error) {
@@ -77,7 +80,7 @@ export const getCustomerOrderById = createAsyncThunk(
   async (orderId, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axiosInstance.get(`/order/${orderId}`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${orderId}`);
 
       return data.order;
     } catch (error) {
@@ -95,7 +98,7 @@ export const getCustomerOrderStats = createAsyncThunk(
   async (id, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axiosInstance.get(`/order/stats`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/stats`);
 
       return data.totalOrder;
     } catch (error) {
@@ -113,7 +116,7 @@ export const getCustomerOrder = createAsyncThunk(
   async (id, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axiosInstance.get(`/order/customer/order`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/customer/order`);
 
       return data.order;
     } catch (error) {
@@ -132,7 +135,7 @@ export const getAllCustomersOrder = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const { orderpage } = state.order;
-      const { data } = await axiosInstance.get(`/order?page=${orderpage}`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order?page=${orderpage}`);
 
       return data;
     } catch (error) {
@@ -151,7 +154,7 @@ export const updateCustomersOrderToPaid = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const { _id } = state.order.order;
-      const { data } = await axiosInstance.put(`/order/${_id}/pay`, details);
+      const { data } = await axios.put(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${_id}/pay`, details);
 
       return data.updatedOrder;
     } catch (error) {
@@ -170,7 +173,7 @@ export const updateCustomersOrderToIsDelivered = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const { _id } = state.order.order;
-      const { data } = await axiosInstance.put(`/order/${_id}/delivered`, name);
+      const { data } = await axios.put(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${_id}/delivered`, name);
 
       return data.updatedOrder;
     } catch (error) {
