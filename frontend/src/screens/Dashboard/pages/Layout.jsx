@@ -13,16 +13,18 @@ const LayoutWrapper = styled.div`
     .OutletWrapper {
       overflow: auto;
       height: calc(100vh - 7rem);
-      align-items:flex-start;
-      border-right:1px solid rgba(0,0,0,.1);
-      width:auto;
+      align-items: flex-start;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      width: auto;
+      @media (max-width: 580px) {
+        height: 100vh;
+      }
       .sidebar_wrapper {
         top: 0%;
-        height:100%;
+        height: 100%;
         position: sticky;
         overflow: auto;
-        width:28rem;
-        
+        width: 28rem;
       }
     }
   }
@@ -37,7 +39,7 @@ export default function Layout() {
   return (
     <LayoutWrapper>
       {/* <Sidebar /> */}
-      {/* <Smallsidebar /> */}
+      <Smallsidebar />
       <div className="LayoutContainer flex column">
         <Header />
         <div className="OutletWrapper flex">

@@ -24,7 +24,7 @@ export default function Message({
     >
       <div className="flex w-100 item-center gap-1">
         {alertType === "danger" && <CgDanger className="fs-24" />}
-        <h5 className="flex fs-12">{alertText}</h5>
+        <h5 className="flex">{alertText}</h5>
       </div>
       <div className="flex-1">
         <div
@@ -49,7 +49,7 @@ const MessageContent = styled.div`
   z-index: 10000;
   left: 2%;
   border-radius: 2px;
-  font-size: 12px;
+  font-size: 1.3rem;
   font-weight: 500;
   color: var(--dark-1);
   transition: all 0.6s;
@@ -76,6 +76,7 @@ const MessageContent = styled.div`
   @media (max-width: 780px) {
     min-width: 200px;
     justify-content: flex-start;
+    font-size: 1.3rem;
   }
   @media (max-width: 480px) {
     min-width: 200px;

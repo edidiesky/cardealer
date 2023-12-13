@@ -32,6 +32,9 @@ const HeaderWrapper = styled.div`
     width: 500px;
 
     background: var(--grey-3);
+    @media (max-width: 780px) {
+      width: 80%;
+    }
 
     svg {
       font-size: 1.7rem;
@@ -57,6 +60,11 @@ const HeaderWrapper = styled.div`
         font-weight: 400;
         color: #333;
       }
+    }
+  }
+  h5 {
+    @media (max-width: 580px) {
+      display:none;
     }
   }
   .headerContainer {
@@ -157,8 +165,17 @@ export default function Header({ text, subtext }) {
         <div className="headerLeft">
           <div className="flex item-center gap-1">
             <h5 className="fs-14 family1 text-bold">essien@gmail.com</h5>
-            <div className="icon flex item-center justify-center">
-              <BiUser fontSize={"24px"} color="var(--dark-1)" />
+            <div
+              style={{
+                width: "3rem",
+                height: "3rem",
+                borderRadius: "50%",
+                background: "#000",
+                color: "#Fff",
+              }}
+              className="fs-16 text-white flex item-center justify-center"
+            >
+              {userInfo?.firstname.charAt(0)}
             </div>
           </div>
           <div className="Icon" onClick={() => dispatch(ToggleSidebar())}>

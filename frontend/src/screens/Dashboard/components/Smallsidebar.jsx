@@ -13,13 +13,7 @@ export const sidebarData = [
     id: 1,
     icon1: <MdDashboard />,
     title: "Dashboard",
-    path: "statistics",
-  },
-  {
-    id: 2,
-    icon1: <HiOutlineShoppingCart />,
-    title: "Products",
-    path: "product",
+    path: "",
   },
   {
     id: 3,
@@ -42,13 +36,13 @@ export default function SmallSidebar() {
         <div className="barWrapper1">
           <RxCross2 onClick={() => dispatch(offSidebar())} />
         </div>
-        <div className="flex column gap-2">
+        <div className="flex column">
           {sidebarData.map((x) => {
             return (
               <NavLink
                 to={`${x.path}`}
                 className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
+                  isActive ? "nav-link family1 active" : "nav-link family1"
                 }
                 key={x.id}
                 onClick={() => dispatch(offSidebar())}
@@ -112,7 +106,7 @@ const SmallSidebarContent = styled.div`
   }
 
   .smallSidebarWrapper {
-    width: 280px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     z-index: 2000;
@@ -121,11 +115,11 @@ const SmallSidebarContent = styled.div`
     height: 100vh;
     padding-top: 8rem;
     position: relative;
-     @media (max-width: 380px) {
+    @media (max-width: 380px) {
       width: 260px;
     }
     a {
-      padding: 12px 18px;
+      padding: 15px 30px;
       font-size: 1.5rem;
       text-transform: capitalize;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -139,8 +133,7 @@ const SmallSidebarContent = styled.div`
       gap: 1.4rem;
       z-index: 200;
       &:hover {
-        background: #163765f2;
-        color: #fff;
+        background: #e8eff9;
       }
       svg {
         font-size: 2rem;
