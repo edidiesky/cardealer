@@ -3,6 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm install --legacy-peer-deps && vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -35,11 +40,6 @@
     "styled-components": "^5.3.9",
     "web-vitals": "^2.1.4",
     "webpack": "^5.82.1"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "npm install --legacy-peer-deps && vite build",
-    "preview": "vite preview"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
