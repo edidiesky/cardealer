@@ -56,6 +56,8 @@ export const Table = styled.div`
         display: flex;
         align-items: center;
         gap: 2rem;
+        height: 4.5rem;
+
         background: var(--grey-3);
 
         svg {
@@ -70,6 +72,7 @@ export const Table = styled.div`
           background: inherit;
           font-size: 1.3rem;
           outline: none;
+          height:100%;
           border: none;
           font-weight: 500;
           color: #222;
@@ -83,8 +86,9 @@ export const Table = styled.div`
       }
       .addBtn {
         border: none;
-        padding:1rem 1.4rem;
+        padding: 1rem 1.4rem;
         font-size: 1.2rem;
+        height: 4.5rem;
         color: #fff;
         background: #1b3d8c;
         font-weight: 600;

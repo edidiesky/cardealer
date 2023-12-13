@@ -24,7 +24,7 @@ export default function Message({
     >
       <div className="flex w-100 item-center gap-1">
         {alertType === "danger" && <CgDanger className="fs-24" />}
-        <h4 className="flex">{alertText}</h4>
+        <h5 className="flex fs-12">{alertText}</h5>
       </div>
       <div className="flex-1">
         <div
@@ -39,7 +39,7 @@ export default function Message({
 }
 
 const MessageContent = styled.div`
-  min-width: 200px;
+  min-width: 250px;
   padding: 1rem;
   min-height:5rem;
   box-shadow: var(--shadow);
