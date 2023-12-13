@@ -29,7 +29,7 @@ export default function Delete({ type }) {
           </div>
           <div className="deleteCardTop">
             <h3>Delete User?</h3>
-            <p className="family1 fs-16">
+            <p className="family1 fs-18">
               Are you sure you want to delete "{userDetails?.firstname}" from
               the database?
               <br /> You can't undo this action.
@@ -209,6 +209,7 @@ const DeleteContainer = styled.div`
       }
       p {
         line-height: 1.4;
+        font-size:1.3rem;
         text-align: center;
       }
     }

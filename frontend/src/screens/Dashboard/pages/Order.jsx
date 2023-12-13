@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import { getAllCustomersOrder } from "../../../Features";
-import { TableList, Pagination, Header } from "../components";
+import { Pagination, Header } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { TableCard, Links, Alert } from "../components";
 import { Table } from "./styles";

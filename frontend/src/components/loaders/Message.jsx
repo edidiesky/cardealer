@@ -39,51 +39,69 @@ export default function Message({
 }
 
 const MessageContent = styled.div`
-  width: 550px;
-  padding: 1rem 2rem;
-  min-height: 6rem;
-  background-color: #222;
+  min-width: 200px;
+  padding: 1rem;
+  min-height:5rem;
+  box-shadow: var(--shadow);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12) !important;
+  background-color: #fff;
   position: fixed;
-  z-index: 100000;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 20px;
-  font-size: 1.4rem;
+  z-index: 10000;
+  left: 2%;
+  border-radius: 12px;
+  font-size: 12px;
   font-weight: 600;
-  color: #fff;
+  color: var(--dark-1);
   transition: all 0.6s;
-  /* transform: translate3d(0, -100px, 0); */
-  top: -100%;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -1000%);
+  opacity: 0;
+  visibility: hidden;
+
+  top: -5%;
+
   &.active {
-    top: 20px;
+    top: 5%;
+    transform: translateX(-50%);
+    opacity: 1;
+    visibility: visible;
   }
   &.danger {
     background-color: var(--red);
     color: #fff;
-    top: 20px;
+    border-left: 4px solid var(--red);
   }
   @media (max-width: 780px) {
-    width: 300px;
+    min-width: 200px;
     justify-content: flex-start;
+  }
+  @media (max-width: 480px) {
+    min-width: 200px;
+    justify-content: flex-start;
+    padding: 1rem 2rem;
   }
   .flex1 {
     flex: 1;
   }
-  .icon1 {
-    cursor: pointer;
-    width: 3rem !important;
-    height: 3rem !important;
+  .icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: grid;
+    place-items: center;
     border-radius: 50%;
-    transition: all 0.4s;
+    background-color: #f5f5f5;
+    cursor: pointer;
     &:hover {
-      background-color: #f7f7f7;
+      background-color: var(--grey-1);
       svg {
-        color: #222;
+        color: #fff;
       }
     }
     svg {
-      font-size: 2rem;
-      color: var(--grey-2);
+      width: 50%;
+      height: 50%;
+      color: var(--dark-1);
     }
   }
 `;

@@ -8,7 +8,7 @@ import {
   clearProductAlert,
   clearProductDetails,
 } from "../../../Features";
-import { TableList, Pagination, Header } from "../components";
+import {Pagination, Header } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { TableCard, Links, Alert } from "../components";
 import { Table } from "./styles";
@@ -66,10 +66,10 @@ export default function Products() {
         handleClearAlert={clearProductAlert}
       />
       {isLoading && <LoaderIndex loading={isLoading} />}
-      <Header
+      {/* <Header
         text={"My Products"}
         subtext={"Here is what is happening with your products today"}
-      />
+      /> */}
       <ProductsContainer>
         <Table>
           {isSuccess && (

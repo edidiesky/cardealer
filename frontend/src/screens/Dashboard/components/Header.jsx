@@ -1,4 +1,4 @@
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { ToggleSidebar } from "../../../Features";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,15 +9,15 @@ const HeaderWrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 1000;
-  min-height: 96px;
+  min-height: 7rem;
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  border-bottom: 1px solid #ccc;
+  box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.12);
   justify-content: space-between;
   .icon {
-    width: 5rem;
-    height: 5rem;
+    width: 3.5rem;
+    height: 3.5rem;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.08);
   }
@@ -56,7 +56,7 @@ const HeaderWrapper = styled.div`
           display: none;
         }
         svg {
-          font-size: 3.4rem;
+          font-size: 3rem;
         }
       }
       .imageIcon {
@@ -64,7 +64,7 @@ const HeaderWrapper = styled.div`
         height: 5rem;
       }
     }
-    h3 {
+    h4 {
       font-size: 2rem;
       font-weight: 700;
       color: var(--dark-1);
@@ -95,16 +95,16 @@ export default function Header({ text, subtext }) {
   return (
     <HeaderWrapper>
       <div className="headerContainer">
-        <h3>
-          {text}
-          <span className="span1">{subtext}</span>
-        </h3>
+        <h4>
+          Avada
+          {/* <span className="span1">{subtext}</span> */}
+        </h4>
 
         <div className="headerLeft">
           <div className="flex item-center gap-1">
-            <h4 className="fs-14 family1">essien@gmail.com</h4>
+            <h5 className="fs-16 family1">essien@gmail.com</h5>
             <div className="icon flex item-center justify-center">
-              <BiUser fontSize={"26px"} color="var(--dark-1)" />
+              <BiUser fontSize={"24px"} color="var(--dark-1)" />
             </div>
           </div>
           <div className="Icon" onClick={() => dispatch(ToggleSidebar())}>

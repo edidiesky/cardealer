@@ -21,17 +21,17 @@ import {
   Search,
 } from "./screens";
 
-// import {
-//   LayoutList,
-//   AdminProductList,
-//   OrderList,
-//   ProfileList,
-//   Customers,
-//   EditUser,
-//   EditProductIndex,
-//   CreateProductIndex,
-//   Statistics,
-// } from "./screens/Dashboard/pages";
+import {
+  LayoutList,
+  AdminProductList,
+  OrderList,
+  ProfileList,
+  Customers,
+  EditUser,
+  EditProductIndex,
+  CreateProductIndex,
+  Statistics,
+} from "./screens/Dashboard/pages";
 import Billing from "./screens/Checkout";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -52,6 +52,10 @@ export default function App() {
           <Route path={"car-dealership/auth/register"} element={<Register />} />
           <Route path={"car-dealership/profile"} element={<Profile />} />
           <Route path={":id/order"} element={<Order />} />
+        </Route>
+
+        <Route path={"/car-dealership/dashboard"} element={<LayoutList />}>
+          <Route path={""} element={<AdminProductList />} />
         </Route>
       </Routes>
     </div>

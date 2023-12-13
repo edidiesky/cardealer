@@ -9,7 +9,6 @@ export const Table = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 
   .TableTop {
     padding: 0.4rem 0;
@@ -53,16 +52,15 @@ export const Table = styled.div`
         gap: 1.4rem;
       }
       form {
-        padding: 1.2rem 3rem;
+        padding: 1.2rem 2rem;
         display: flex;
         align-items: center;
         gap: 2rem;
         background: var(--grey-3);
-        border-radius: 37px;
 
         svg {
-          width: 2rem;
-          height: 2rem;
+          width: 1.4rem;
+          height: 1.4rem;
           color: var(--grey);
         }
 
@@ -74,20 +72,19 @@ export const Table = styled.div`
           outline: none;
           border: none;
           font-weight: 500;
-          color: var(--grey);
+          color: #222;
           font-family: inherit;
           &::placeholder {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 400;
-            color: rgba(0, 0, 0, 0.1);
+            color: #333;
           }
         }
       }
       .addBtn {
         border: none;
-        padding: 1.4rem 2rem;
-        font-size: 1.5rem;
-        border-radius: 4px;
+        padding:1rem 1.4rem;
+        font-size: 1.2rem;
         color: #fff;
         background: #1b3d8c;
         font-weight: 600;
@@ -127,12 +124,11 @@ export const Table = styled.div`
       width: 100%;
       min-width: 1000px;
 
-
       thead {
         tr {
           text-align: start;
           z-index: 200;
-          background: var(--grey-3);
+          background: #f7f7f7;
           text-align: start;
           transition: all 0.3s var(--transition-2);
           &:hover {
@@ -143,7 +139,9 @@ export const Table = styled.div`
             color: var(--blue-3);
             font-weight: 600;
             text-align: start;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding: 2rem 1.8rem;
             font-family: "Barlow", sans-serif;
             transition: all 0.3s var(--transition-2);
@@ -168,9 +166,9 @@ export const Table = styled.div`
             text-align: start;
             padding: 1.5rem;
             color: var(--dark-1);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             .true {
-              color: e72d2d;
+              color: #e72d2d;
             }
             .cartProduct {
               width: 100%;
@@ -179,17 +177,11 @@ export const Table = styled.div`
               gap: 2rem;
               justify-content: center;
               .imageWrapper {
-                width: 10rem;
+                width: 7rem;
                 position: relative;
-                height: 6rem;
                 border-radius: 5px;
                 img {
-                  position: absolute;
-                  top: 0;
-                  width: 90%;
-                  height: 100%;
-                  left: 0;
-                  border-radius: 5px;
+                  width: 7rem;
                   object-fit: cover;
                 }
               }
