@@ -26,7 +26,7 @@ const data = [
 export default function HeaderTop() {
   const { thememode } = useSelector((store) => store.toggle);
   const { userInfo } = useSelector((store) => store.user);
-  const { totalQuantity } = useSelector((store) => store.bag);
+  const { totalQuantity, bag } = useSelector((store) => store.bag);
   const dispatch = useDispatch();
 
   // bag first digit name
@@ -75,6 +75,25 @@ export default function HeaderTop() {
               <BiCart />
               <span className="notifSpan">{totalQuantity}</span>
             </Link>
+            <div className="cart_dropdown flex column gap-1">
+              {bag?.map((x) => {
+                return (
+                  <div className="w-100 flex item-center gap-1">
+                    <img
+                      style={{ width: "10rem" }}
+                      src={x?.image[0]}
+                      alt=""
+                      className=""
+                    />
+                    <div style={{ gap: "5px" }} className="flex column">
+                      <h5 className="fs-16 family1 text-bold">{x?.title}</h5>
+                      <h6 className="fs-14 family1 text-light">{x?.brand}</h6>
+                      <h5 className="fs-16 text-bold">${x?.price}</h5>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
             <div className="authorWrapper">
               <div className="author">{username}</div>
               {userInfo?.isAdmin ? (
@@ -89,7 +108,7 @@ export default function HeaderTop() {
                   <Link
                     target="_blank"
                     className="link"
-                    to={"/car-dealership/dashboard"}
+                    to={"/car-dealership/dashboard/"}
                   >
                     Dashboard
                   </Link>
@@ -271,6 +290,34 @@ const HeaderTopContainer = styled.div`
       align-items: center;
       gap: 1rem;
       z-index: 300000;
+      position: relative;
+      /* &:hover .cart_dropdown {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+      } */
+      /* .iconWrapper:hover .cart_dropdown {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+      } */
+
+      .cart_dropdown {
+        position: absolute;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        top: 130%;
+        padding: 1rem;
+        z-index: 3000;
+        cursor: pointer;
+        right: 20%;
+        width: 300px;
+        background: #fff;
+        max-height: 400px;
+        transform: scale(0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s;
+      }
       .headerTopProfile {
         position: relative;
         display: flex;

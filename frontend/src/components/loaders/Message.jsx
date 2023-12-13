@@ -58,7 +58,6 @@ const MessageContent = styled.div`
   transform: translate(-50%, -1000%);
   opacity: 0;
   visibility: hidden;
-  font-family: "Barlow", sans-serif;
 
   top: -5%;
 

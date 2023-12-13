@@ -66,7 +66,11 @@ const bagSlice = createSlice({
 
     clearBagItems: (state, action) => {
       state.bag = [];
+      state.totalPrice = 0;
+      state.totalQuantity = 0;
       localStorage.removeItem("bagItem")
+      localStorage.removeItem("totalPrice");
+      localStorage.removeItem("totalQuantity");
 
     },
     clearCartMessage: (state, action) => {

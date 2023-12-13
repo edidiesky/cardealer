@@ -49,6 +49,8 @@ export default function Heroindex() {
 
 const HeroContainer = styled.section`
   width: 100%;
+  z-index: 20;
+
   .text1,
   .text2,
   .text3 {
