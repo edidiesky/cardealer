@@ -62,6 +62,8 @@ const GetAllProduct = asyncHandler(async (req, res) => {
 
   const noOfPages = Math.ceil(totalProduct / limit);
 
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ product, noOfPages, totalProduct });
 });
 
@@ -75,6 +77,8 @@ const GetSingleProduct = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Product not found");
   }
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ product });
 });
 
@@ -89,6 +93,8 @@ const CreateSingleProduct = asyncHandler(async (req, res) => {
     user: userId,
   });
 
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ product });
 });
 
@@ -111,6 +117,8 @@ const UpdateProduct = asyncHandler(async (req, res) => {
     { new: true }
   );
   console.log(updatedproduct)
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ updatedproduct });
 });
 
@@ -124,6 +132,8 @@ const DeleteProduct = asyncHandler(async (req, res) => {
     throw new Error("Product not found");
   }
   await Product.findByIdAndDelete({ _id: req.params.id });
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ msg: "The Product has been successfully deleted" });
 });
 
@@ -177,6 +187,8 @@ const ReviewProduct = asyncHandler(async (req, res) => {
 const GetTopRatedProduct = asyncHandler(async (req, res) => {
   // get the product but based on the rating and then send 4 product
   const toprated = await Product.find({}).sort({ rating: -1 }).limit(3);
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ toprated });
 });
 
@@ -224,6 +236,8 @@ const AggregateUserProductStats = asyncHandler(async (req, res) => {
     return x.date;
   });
 
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ dates, counts });
 });
 

@@ -25,6 +25,8 @@ const GetAllOrder = async (req, res) => {
 
   const noOfPages = Math.ceil(totalOrder / limit);
 
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ order, noOfPages, totalOrder });
 };
 
@@ -40,6 +42,8 @@ const GetCustomerOrder = async (req, res) => {
     "createdBy",
     "firstname lastname email address"
   );
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ order });
 };
 
@@ -52,6 +56,8 @@ const GetOrderById = async (req, res) => {
     "createdBy",
     "firstname lastname email address"
   );
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ order });
 };
 
@@ -108,6 +114,8 @@ const CreateOrder = async (req, res) => {
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
 
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ order, url: session.url });
 };
 
@@ -137,6 +145,8 @@ const UpdateOrderToPaid = async (req, res) => {
     { new: true }
   );
 
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ updatedOrder });
 };
 
@@ -161,6 +171,8 @@ const UpdateOrderToIsDelivered = async (req, res) => {
     },
     { new: true }
   );
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ updatedOrder });
 };
 
@@ -203,6 +215,8 @@ const AggregateUserOrderStats = asyncHandler(async (req, res) => {
     return { date, totalQuantity, averageOrderQuantity };
   });
 
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ totalOrder });
 });
 
