@@ -14,8 +14,8 @@ export default function CartContent() {
       {bag?.length === 0 ? (
         <div className="flex gap-2 alerttop item-center justify-space">
           <h2>You have no items in your cart</h2>
-          <Link to={"/"}>
-            <BiCart fontSize={"24px"} />
+          <Link to={"/"} className='tab'>
+            Go Home
           </Link>
         </div>
       ) : (
@@ -46,21 +46,27 @@ export default function CartContent() {
 
 const CartContentContainer = styled.div`
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 
   @media (max-width: 780px) {
     display: none;
+  }
+
+  .tab {
+    padding: 1.7rem 2rem;
+    background: #f7f7f7;
+    font-size: 1.4rem;
+    color: var(--text-color);
   }
 
   h2 {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-color);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     padding: 2rem 0;
     text-transform: uppercase;
   }

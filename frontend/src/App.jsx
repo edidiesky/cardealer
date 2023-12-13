@@ -47,6 +47,7 @@ export default function App() {
           <Route path={"car-dealership/cars/:id"} element={<Details />} />
           <Route path={"car-dealership/inventory"} element={<ProductList />} />
           <Route path={"car-dealership/cart/:id"} element={<Cart />} />
+          <Route path={"car-dealership/cart"} element={<Cart />} />
           <Route path={"car-dealership/auth/login"} element={<Login />} />
           <Route path={"car-dealership/auth/register"} element={<Register />} />
           <Route path={"car-dealership/profile"} element={<Profile />} />
