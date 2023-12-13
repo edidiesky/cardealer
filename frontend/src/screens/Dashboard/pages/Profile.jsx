@@ -162,15 +162,15 @@ export default function Profile() {
 }
 
 const ProfileContainer = styled.div`
-  width: 95%;
-  margin: 0 auto;
-  /* padding: 3rem 0; */
+
+  width: 100%;
+
   .profile_top {
-    padding:0 3rem;
-    padding-top:3rem;
-    border-bottom:1px solid rgba(0,0,0,.09);
+    padding: 0 3rem;
+    padding-top: 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
     span {
-      padding:1rem 0;
+      padding: 1rem 0;
     }
   }
   .profileWrapper {

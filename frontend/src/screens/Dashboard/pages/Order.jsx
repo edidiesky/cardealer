@@ -25,13 +25,22 @@ export default function Order() {
     <>
       <Alert />
       {isLoading && <LoaderIndex loading={isLoading} />}
-    
+
       <OrdersContainer>
+        <div className="profile_top w-100">
+          <h3 className="fs-24 text-dark">
+            Order List
+            <span
+              style={{ marginTop: "2rem" }}
+              className="fs-14 family1 block text-dark text-light"
+            >
+              Here is my list of customers orders who have purchased my awesome
+              car collections
+            </span>
+          </h3>
+        </div>
         <Table>
           <div className="TableTop">
-            <div className="TableTopRight">
-              <h3>Order List </h3>
-            </div>
             <div className="TableTopLeft"></div>
           </div>
           <div className="TableContainer">
@@ -62,7 +71,13 @@ export default function Order() {
 }
 
 const OrdersContainer = styled.div`
-  width: 95%;
-  margin: 0 auto;
-  padding-top: 3rem;
+width:100%;
+  .profile_top {
+    padding: 0 3rem;
+    padding-top: 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    span {
+      padding: 1rem 0;
+    }
+  }
 `;

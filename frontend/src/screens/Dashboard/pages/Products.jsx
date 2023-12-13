@@ -71,6 +71,17 @@ export default function Products() {
         subtext={"Here is what is happening with your products today"}
       /> */}
       <ProductsContainer>
+        <div className="profile_top w-100">
+          <h3 className="fs-24 text-dark">
+            Product List
+            <span
+              style={{ marginTop: "2rem" }}
+              className="fs-14 family1 block text-dark text-light"
+            >
+              Here is my list of your awesome car collections that are being leased out for sale
+            </span>
+          </h3>
+        </div>
         <Table>
           {isSuccess && (
             <Message
@@ -79,9 +90,6 @@ export default function Products() {
             />
           )}
           <div className="TableTop">
-            <div className="TableTopRight">
-              <h3>Product List </h3>
-            </div>
             <div className="TableTopLeft">
               <form>
                 <FaSearch />
@@ -126,7 +134,14 @@ export default function Products() {
 }
 
 const ProductsContainer = styled.div`
-  width: 95%;
-  margin: 0 auto;
-  padding-top: 3rem;
+  width: 100%;
+
+  .profile_top {
+    padding: 0 3rem;
+    padding-top: 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    span {
+      padding: 1rem 0;
+    }
+  }
 `;
