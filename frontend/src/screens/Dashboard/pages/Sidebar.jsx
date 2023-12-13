@@ -11,10 +11,12 @@ import { MdDashboard, MdAddBusiness } from "react-icons/md";
 import { BsCollection } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 const SidebarWrapper = styled.div`
-  width: 28rem;
+  width: 30rem;
   background: var(--white);
   height: 100%;
   border-right: 1px solid rgba(0, 0, 0, 0.09);
+  /* min-height: 100%; */
+ 
   @media (max-width: 780px) {
     display: inline-block;
     position: fixed;
@@ -30,9 +32,6 @@ const SidebarWrapper = styled.div`
     gap: 3rem;
     width: 100%;
     margin: 0 auto;
-    height: 100%;
-    top: 0%;
-    position: sticky;
     .imageWrapper {
       width: 100%;
       padding: 1.6rem 2rem;
@@ -61,8 +60,8 @@ const SidebarWrapper = styled.div`
         text-align: start;
       }
       .nav-link {
-        padding: 8px 16px;
-        font-size: 1.2rem;
+        padding: 10px 30px;
+        font-size: 1.3rem;
         height: 5rem;
         font-weight: 600;
         margin: 0 auto;
@@ -71,7 +70,7 @@ const SidebarWrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        gap: 2rem;
+        gap: 3rem;
         position: relative;
 
         &:hover {
@@ -83,7 +82,7 @@ const SidebarWrapper = styled.div`
         &.active {
           /* position: absolute; */
           background: rgb(232 239 249 / 77%);
-          color:var(--blue-1);
+          color: var(--blue-1);
           /* width: 4px;
           height: 100%;
           left: 0;

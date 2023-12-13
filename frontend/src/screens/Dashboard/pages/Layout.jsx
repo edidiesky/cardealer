@@ -7,15 +7,20 @@ const LayoutWrapper = styled.div`
   min-height: 100vh;
   width: 100%;
   display: flex;
-  background-color:#fff;
+  background-color: #fff;
   .LayoutContainer {
     width: 100%;
     .OutletWrapper {
-      
-      /* background:red; */
-      overflow:auto;
-      width: 100%;
-      padding-bottom: 3.5rem;
+      overflow: auto;
+      height: calc(100vh - 7rem);
+      align-items:flex-start;
+      .sidebar_wrapper {
+        top: 0%;
+        height:100%;
+        position: sticky;
+        overflow: auto;
+
+      }
     }
   }
   h2 {
@@ -32,8 +37,10 @@ export default function Layout() {
       {/* <Smallsidebar /> */}
       <div className="LayoutContainer flex column">
         <Header />
-        <div className="OutletWrapper flex h-100">
-          <Sidebar />
+        <div className="OutletWrapper flex">
+          <div className="w-100 sidebar_wrapper">
+            <Sidebar/>
+          </div>
           <Outlet />
         </div>
       </div>
