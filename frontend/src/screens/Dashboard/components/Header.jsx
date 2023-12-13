@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { CgMenuRight } from "react-icons/cg";
 import { BiUser } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { TfiSearch } from "react-icons/tfi";
 const HeaderWrapper = styled.div`
   background: var(--white);
   position: sticky;
@@ -22,7 +23,42 @@ const HeaderWrapper = styled.div`
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.08);
   }
+  form {
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 4.5rem;
+    width: 500px;
 
+    background: var(--grey-3);
+
+    svg {
+      font-size: 1.7rem;
+
+      color: var(--grey);
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      background: inherit;
+      font-size: 1.5rem;
+      outline: none;
+      height: 100%;
+      border: none;
+      font-family: "Barlow", sans-serif !important;
+
+      font-weight: 500;
+      color: #222;
+      font-family: inherit;
+      &::placeholder {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #333;
+      }
+    }
+  }
   .headerContainer {
     width: 95%;
     margin: 0 auto;
@@ -97,9 +133,26 @@ export default function Header({ text, subtext }) {
     <HeaderWrapper>
       <div className="headerContainer">
         <Link to={"/"}>
-          <img style={{width:"8rem"}} className="imageIcon" src="/images/dealer1.png" alt="images" />
+          <img
+            style={{ width: "8rem" }}
+            className="imageIcon"
+            src="/images/dealer1.png"
+            alt="images"
+          />
         </Link>
-       
+
+        <div className="flex item-center justify-center w-100">
+          <form>
+            <TfiSearch />
+            <input
+              type="text"
+              placeholder="Search for car collections"
+              name="search"
+              // value={search}
+              // onChange={(e) => setSearch(e.target.value)}
+            />
+          </form>
+        </div>
 
         <div className="headerLeft">
           <div className="flex item-center gap-1">

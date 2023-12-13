@@ -78,56 +78,59 @@ export default function Products() {
               style={{ marginTop: "2rem" }}
               className="fs-14 family1 block text-dark text-light"
             >
-              Here is my list of your awesome car collections that are being leased out for sale
+              Here is my list of your awesome car collections that are being
+              leased out for sale
             </span>
           </h3>
         </div>
-        <Table>
-          {isSuccess && (
-            <Message
-              alertText={"Your Customers have been succesfully gotten"}
-              alertType={"success"}
-            />
-          )}
-          <div className="TableTop">
-            <div className="TableTopLeft">
-              <form>
-                <FaSearch />
-                <input
-                  type="text"
-                  placeholder="Search for product"
-                  name="search"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </form>
-              <Link to={"16263"} className="editBtn">
-                Add Product
-              </Link>
+        <div className="w-100">
+          <Table>
+            {isSuccess && (
+              <Message
+                alertText={"Your Customers have been succesfully gotten"}
+                alertType={"success"}
+              />
+            )}
+            <div className="TableTop">
+              <div className="TableTopLeft">
+                <form>
+                  <FaSearch />
+                  <input
+                    type="text"
+                    placeholder="Search for product"
+                    name="search"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                </form>
+                <Link to={"16263"} className="editBtn">
+                  Add Product
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className="TableContainer">
-            <table className="tableWrapper">
-              <thead>
-                <tr>
-                  <th> Id</th>
-                  <th> Image</th>
-                  <th> Name</th>
-                  <th> Price</th>
-                  <th> CountInStock</th>
-                  <th> Brand</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {product?.map((x) => {
-                  return <TableCard x={x} key={x?._id} />;
-                })}
-              </tbody>
-            </table>
-          </div>
-          {noOfPages > 0 && <Pagination />}
-        </Table>
+            <div className="TableContainer">
+              <table className="tableWrapper">
+                <thead>
+                  <tr>
+                    <th> Id</th>
+                    <th> Image</th>
+                    <th> Name</th>
+                    <th> Price</th>
+                    <th> CountInStock</th>
+                    <th> Brand</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {product?.map((x) => {
+                    return <TableCard x={x} key={x?._id} />;
+                  })}
+                </tbody>
+              </table>
+            </div>
+            {noOfPages > 0 && <Pagination />}
+          </Table>
+        </div>
       </ProductsContainer>
     </>
   );
