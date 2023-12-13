@@ -66,7 +66,7 @@ const HeaderWrapper = styled.div`
       }
     }
     h4 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--dark-1);
       flex: 1;
@@ -103,7 +103,7 @@ export default function Header({ text, subtext }) {
 
         <div className="headerLeft">
           <div className="flex item-center gap-1">
-            <h5 className="fs-16 family1">essien@gmail.com</h5>
+            <h5 className="fs-14 family1">essien@gmail.com</h5>
             <div className="icon flex item-center justify-center">
               <BiUser fontSize={"24px"} color="var(--dark-1)" />
             </div>

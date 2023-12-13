@@ -103,14 +103,15 @@ const UpdateProduct = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Product does not exist");
   }
+  // console.log(product);
 
   const updatedproduct = await Product.findByIdAndUpdate(
     { _id: req.params.id },
-    ...req.body,
+    req.body,
     { new: true }
   );
   console.log(updatedproduct)
-  // res.status(200).json({ updatedproduct });
+  res.status(200).json({ updatedproduct });
 });
 
 //PRIVATE/

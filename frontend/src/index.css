@@ -355,44 +355,44 @@ h1 {
 }
 
 .fs-24 {
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 .fs-26 {
-  font-size: 26px;
+  font-size: 2.6rem;
 }
 .fs-30 {
-  font-size: 30px;
+  font-size: 3.0rem;
 }
 .fs-35 {
-  font-size: 35px;
+  font-size: 3.5rem;
 }
 .fs-40 {
-  font-size: 40px;
+  font-size: 4.0rem;
 }
 .fs-50 {
-  font-size: 50px;
+  font-size: 5.0rem;
 }
 .fs-46 {
-  font-size: 46px;
+  font-size: 4.6rem;
 }
 .fs-70 {
-  font-size: 70px;
+  font-size: 7.0rem;
 }
 
 .fs-12 {
-  font-size: 12px;
+  font-size: 1.2rem;
 }
 .fs-10 {
-  font-size: 10px;
+  font-size: 1.0rem;
 }
 .fs-14 {
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 .fs-16 {
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 .fs-18 {
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 .avatar {
   width: 4rem;
@@ -402,7 +402,7 @@ h1 {
 /* slider css start */
 .owl-theme {
   width: 100%;
-  /* height: 300px; */
+  /* height: 30.0rem; */
 }
 
 .owl-item {
