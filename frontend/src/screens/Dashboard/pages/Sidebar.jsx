@@ -111,17 +111,17 @@ export const sidebarData = [
     id: 1,
     icon1: <MdDashboard />,
     title: "Dashboard",
-    path: "car-dealership/dashboard/",
+    path: "",
   },
   {
     id: 3,
     icon1: <MdAddBusiness />,
     title: "Add Products",
-    path: "car-dealership/dashboard/create-product",
+    path: "create-product",
   },
-  { id: 4, icon1: <BsCollection />, title: "Orders", path: "car-dealership/dashboard/order" },
-  { id: 5, icon1: <HiUsers />, title: "Customers", path: "car-dealership/dashboard/customer" },
-  { id: 6, icon1: <CgProfile />, title: "Profile", path: "car-dealership/dashboard/profile" },
+  { id: 4, icon1: <BsCollection />, title: "Orders", path: "order" },
+  { id: 5, icon1: <HiUsers />, title: "Customers", path: "customer" },
+  { id: 6, icon1: <CgProfile />, title: "Profile", path: "profile" },
 ];
 
 export const sidebarData2 = [
@@ -156,7 +156,7 @@ export default function Sidebar() {
                 className={({ isActive, isPending }) =>
                   isActive ? "nav-link family1 fs-15 active" : "nav-link family1 fs-15"
                 }
-                to={`/${x.path}`}
+                to={`/car-dealership/dashboard/${x.path}`}
                 key={x.id}
               >
                 {x.icon1}
