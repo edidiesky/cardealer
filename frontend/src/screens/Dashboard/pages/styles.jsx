@@ -72,8 +72,10 @@ export const Table = styled.div`
           background: inherit;
           font-size: 1.3rem;
           outline: none;
-          height:100%;
+          height: 100%;
           border: none;
+          font-family: "Barlow", sans-serif !important;
+
           font-weight: 500;
           color: #222;
           font-family: inherit;

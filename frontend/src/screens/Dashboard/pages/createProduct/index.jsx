@@ -89,16 +89,14 @@ export default function CreateProductIndex() {
         alertType={alertType}
         handleClearAlert={clearProductAlert}
       />
-      <Header
-        text={"My Products"}
-        subtext={"Here is what is happening with your products today"}
-      />
+
       {isLoading && <LoaderIndex loading={isLoading} />}
       <EditProductContainer>
         <div className="EditProductWrapper">
-          <div className="EditProductWrapperTop">
-            <div className="btnWrapper">
-              <button className="editBtn" onClick={handleAdminProduct}>
+         
+          <div className="EditProductWrapperTop w-90 auto">
+            <div className="w-90 auto">
+              <button className="editBtn fs-15" onClick={handleAdminProduct}>
                 Create your Car Collection
               </button>
             </div>
@@ -135,11 +133,16 @@ export default function CreateProductIndex() {
 }
 
 const EditProductContainer = styled.div`
-  width: 95%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
 
+width:100%;
+  .profile_top {
+    padding: 0 3rem;
+    padding-top: 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    span {
+      padding: 1rem 0;
+    }
+    }
   .EditProductWrapper {
     display: flex;
     flex-direction: column;
@@ -151,7 +154,7 @@ const EditProductContainer = styled.div`
       justify-content: space-between;
       width: 100%;
 
-      .btnWrapper {
+      .w-90 auto {
         width: 100%;
         display: flex;
         align-items: center;
@@ -176,7 +179,6 @@ const EditProductContainer = styled.div`
 
     .editwrapper {
       background-color: #fff;
-      border: 1px solid rgba(0, 0, 0, 0.3);
       padding: 3rem 2rem;
       width: 100%;
       place-items: start;

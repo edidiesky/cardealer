@@ -14,6 +14,8 @@ const LayoutWrapper = styled.div`
       overflow: auto;
       height: calc(100vh - 7rem);
       align-items:flex-start;
+      border-right:1px solid rgba(0,0,0,.1);
+      width:auto;
       .sidebar_wrapper {
         top: 0%;
         height:100%;
@@ -38,7 +40,7 @@ export default function Layout() {
       <div className="LayoutContainer flex column">
         <Header />
         <div className="OutletWrapper flex">
-          <div className="w-100 sidebar_wrapper">
+          <div className="sidebar_wrapper">
             <Sidebar/>
           </div>
           <Outlet />

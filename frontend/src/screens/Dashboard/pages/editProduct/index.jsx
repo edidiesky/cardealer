@@ -132,21 +132,30 @@ export default function CreateProductIndex() {
         alertType={alertType}
         handleClearAlert={clearProductAlert}
       />
-      <Header
-        text={"My Products"}
-        subtext={"Here is what is happening with your products today"}
-      />
+
       {isLoading && <LoaderIndex loading={isLoading} />}
       <EditProductContainer>
         <div className="EditProductWrapper">
-          <div className="EditProductWrapperTop">
-            <div className="btnWrapper">
+          <div className="profile_top w-100">
+            <h3 className="fs-24 text-dark">
+              Edit Your Car Collection
+              <span
+                style={{ marginTop: "2rem" }}
+                className="fs-14 family1 block text-dark text-light"
+              >
+                Here is my list of your awesome car collections that are being
+                leased out for sale
+              </span>
+            </h3>
+          </div>
+          <div className="EditProductWrapperTop w-90 auto">
+            <div className="btnWrapper w-90 auto">
               <button className="editBtn" onClick={handleAdminProduct}>
                 Edit Car
               </button>
             </div>
           </div>
-          <div className="w-100 flex gap-3 column editwrapper">
+          <div className="w-90 auto flex gap-3 column editwrapper">
             <ProductInfo
               onChange2={onChange2}
               formdata2={formdata2}
@@ -178,11 +187,15 @@ export default function CreateProductIndex() {
 }
 
 const EditProductContainer = styled.div`
-  width: 95%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-
+  width: 100%;
+  .profile_top {
+    padding: 0 3rem;
+    padding-top: 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    span {
+      padding: 1rem 0;
+    }
+  }
   .EditProductWrapper {
     display: flex;
     flex-direction: column;
@@ -194,7 +207,7 @@ const EditProductContainer = styled.div`
       justify-content: space-between;
       width: 100%;
 
-      .btnWrapper {
+      .w-90 auto {
         width: 100%;
         display: flex;
         align-items: center;
@@ -219,7 +232,6 @@ const EditProductContainer = styled.div`
 
     .editwrapper {
       background-color: #fff;
-      border: 1px solid rgba(0, 0, 0, 0.3);
       padding: 3rem 2rem;
       width: 100%;
       place-items: start;

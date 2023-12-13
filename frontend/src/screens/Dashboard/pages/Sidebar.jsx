@@ -11,25 +11,34 @@ import { MdDashboard, MdAddBusiness } from "react-icons/md";
 import { BsCollection } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 const SidebarWrapper = styled.div`
-  width: 30rem;
+  width: 28rem;
   background: var(--white);
   height: 100%;
+  overflow: auto;
   border-right: 1px solid rgba(0, 0, 0, 0.09);
   /* min-height: 100%; */
- 
-  @media (max-width: 780px) {
+
+  @media (max-width: 480px) {
     display: inline-block;
     position: fixed;
     top: 0;
     left: -100%;
     display: none;
   }
+  .profile_image {
+    width: 10rem;
+    background: #512da7;
+    height: 10rem;
+    font-size:4rem;
+    border-radius: 50%;
+  }
 
   .sidebarContainer {
     display: flex;
     flex-direction: column;
-    padding-top: 2rem;
-    gap: 3rem;
+    padding-top: 1rem;
+    gap: 2rem;
+    height: 100%;
     width: 100%;
     margin: 0 auto;
     .imageWrapper {
@@ -61,9 +70,9 @@ const SidebarWrapper = styled.div`
       }
       .nav-link {
         padding: 10px 30px;
-        font-size: 1.3rem;
+        font-size: 1.36rem;
         height: 5rem;
-        font-weight: 600;
+        font-weight: 500;
         margin: 0 auto;
         width: 100%;
         color: rgb(13, 13, 13);
@@ -101,12 +110,6 @@ export const sidebarData = [
     path: "",
   },
   {
-    id: 2,
-    icon1: <HiOutlineShoppingCart />,
-    title: "Products",
-    path: "product",
-  },
-  {
     id: 3,
     icon1: <MdAddBusiness />,
     title: "Add Products",
@@ -130,12 +133,23 @@ export default function Sidebar() {
   };
   return (
     <SidebarWrapper>
-      <div className="sidebarContainer">
+      <div className="sidebarContainer flex item-center  column">
+        <div className="w-100 flex item-center justify-center  column gap-1">
+          <div className="profile_image flex item-center justify-center text-white fs-30">
+            E
+          </div>
+          <h5 className="fs-16 family1 text-center text-dark text-bold">
+            Edidiong Essien
+            <span className="fs-12 py-1 text-dark text-light block">
+              Your Dashboard
+            </span>
+          </h5>
+        </div>
         <div className="list">
           {sidebarData.map((x) => {
             return (
               <NavLink
-                className="nav-link"
+                className="nav-link family1"
                 activeClassName="active"
                 to={`/car-dealership/dashboard/${x.path}`}
                 key={x.id}
@@ -150,7 +164,7 @@ export default function Sidebar() {
         <div className="list List1">
           {sidebarData2.map((x) => {
             return (
-              <div className="nav-link" onClick={handleLogOut} key={x.id}>
+              <div className="nav-link family1" onClick={handleLogOut} key={x.id}>
                 {x.icon1} {x.title}
               </div>
             );

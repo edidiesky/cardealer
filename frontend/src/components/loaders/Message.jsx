@@ -39,18 +39,18 @@ export default function Message({
 }
 
 const MessageContent = styled.div`
-  min-width: 250px;
-  padding: 1rem;
-  min-height:5rem;
+  min-width: 300px;
+  padding: 1rem 1.6rem;
+  min-height: 6rem;
   box-shadow: var(--shadow);
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12) !important;
   background-color: #fff;
   position: fixed;
   z-index: 10000;
   left: 2%;
-  border-radius: 12px;
+  border-radius: 2px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--dark-1);
   transition: all 0.6s;
   top: 2%;
@@ -58,6 +58,7 @@ const MessageContent = styled.div`
   transform: translate(-50%, -1000%);
   opacity: 0;
   visibility: hidden;
+  font-family: "Barlow", sans-serif;
 
   top: -5%;
 

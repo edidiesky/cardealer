@@ -98,7 +98,7 @@ export default function Profile() {
       {isLoading && <LoaderIndex loading={isLoading} />}
       {/* <Header text={"My Profile"} /> */}
       <ProfileContainer>
-        <div className="profileWrapper">
+        <div className="profileWrapper w-100">
           <div className="profile_top w-100">
             <h3 className="fs-24 text-dark">My Profile
             <span style={{marginTop:"2rem"}} className="fs-14 family1 block text-dark text-light">Make changes to your profile such as your name, 

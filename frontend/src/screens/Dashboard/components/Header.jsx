@@ -10,7 +10,7 @@ const HeaderWrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 1000;
-  min-height: 7rem;
+  min-height: 70px;
   display: flex;
   align-items: center;
   gap: 1.2rem;

@@ -59,6 +59,13 @@ export default function App() {
           <Route path={"order"} element={<OrderList />} />
           <Route path={"customer"} element={<Customers />} />
           <Route exact path={"profile"} element={<ProfileList />} />
+          <Route
+            exact
+            path={"create-product"}
+            element={<CreateProductIndex />}
+          />
+
+          <Route exact path={"product/:id"} element={<EditProductIndex />} />
         </Route>
       </Routes>
     </div>
