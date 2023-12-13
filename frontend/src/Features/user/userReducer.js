@@ -44,20 +44,28 @@ export const getAllCustomer = createAsyncThunk(
   "getAllCustomer",
   async (name, thunkAPI) => {
     const state = thunkAPI.getState();
-    try {
-      const { userpage } = state.user;
+     try {
+       const config = {
+         headers: {
+           authorization: `Bearer ${state.user.token}`,
+           "content-type": "application/json",
 
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth?page=${userpage}`
-      );
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
-      );
-    }
+         },
+       };
+       const { userpage } = state.user;
+
+       const { data } = await axios.get(
+         `${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth?page=${userpage}`,
+         config
+       );
+       return data;
+     } catch (error) {
+       return thunkAPI.rejectWithValue(
+         error.response && error.response.data.message
+           ? error.response.data.message
+           : error.message
+       );
+     }
   }
 );
 

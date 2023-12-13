@@ -29,8 +29,12 @@ const SidebarWrapper = styled.div`
     width: 10rem;
     background: #512da7;
     height: 10rem;
-    font-size:4rem;
+    font-size: 4rem;
     border-radius: 50%;
+    @media (max-width: 480px) {
+      width: 7.7rem;
+      height: 7.7rem;
+    }
   }
 
   .sidebarContainer {
