@@ -118,7 +118,10 @@ export default function CreateProductIndex() {
     image: uploadimage,
     tags,
     colors,
+    _id:productDetails?._id,
   };
+
+  // console.log(productData);
   const handleAdminProduct = (e) => {
     e.preventDefault();
     dispatch(adminUpdateProduct(productData));
@@ -148,14 +151,17 @@ export default function CreateProductIndex() {
               </span>
             </h3>
           </div>
-          <div className="EditProductWrapperTop w-90 auto">
-            <div className="btnWrapper w-90 auto">
+          <div className="EditProductWrapperTop w-100 wrapper auto">
+            <div
+              style={{ marginLeft: "2rem" }}
+              className="btnWrapper w-100 auto"
+            >
               <button className="editBtn" onClick={handleAdminProduct}>
                 Edit Car
               </button>
             </div>
           </div>
-          <div className="w-90 auto flex gap-3 column editwrapper">
+          <div className="w-100 wrapper auto flex gap-3 column editwrapper">
             <ProductInfo
               onChange2={onChange2}
               formdata2={formdata2}
@@ -195,6 +201,9 @@ const EditProductContainer = styled.div`
     span {
       padding: 1rem 0;
     }
+  }
+  .wrapper {
+    padding: 0 2rem;
   }
   .EditProductWrapper {
     display: flex;

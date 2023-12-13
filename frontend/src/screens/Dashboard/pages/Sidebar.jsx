@@ -11,7 +11,7 @@ import { MdDashboard, MdAddBusiness } from "react-icons/md";
 import { BsCollection } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 const SidebarWrapper = styled.div`
-  width: 28rem;
+  width: 100%;
   background: var(--white);
   height: 100%;
   overflow: auto;

@@ -93,15 +93,30 @@ export default function CreateProductIndex() {
       {isLoading && <LoaderIndex loading={isLoading} />}
       <EditProductContainer>
         <div className="EditProductWrapper">
-         
-          <div className="EditProductWrapperTop w-90 auto">
-            <div className="w-90 auto">
-              <button className="editBtn fs-15" onClick={handleAdminProduct}>
+          <div className="profile_top w-100">
+            <h3 className="fs-24 text-dark">
+              Edit Your Car Collection
+              <span
+                style={{ marginTop: "2rem" }}
+                className="fs-14 family1 block text-dark text-light"
+              >
+                Here is my list of your awesome car collections that are being
+                leased out for sale
+              </span>
+            </h3>
+          </div>
+          <div className="EditProductWrapperTop wrapper w-100 auto">
+            <div className="w-100 auto">
+              <button
+                style={{ marginLeft: "2rem" }}
+                className="editBtn fs-15"
+                onClick={handleAdminProduct}
+              >
                 Create your Car Collection
               </button>
             </div>
           </div>
-          <div className="w-100 flex gap-3 column editwrapper">
+          <div className="w-100 wrapper flex gap-3 column editwrapper">
             <ProductInfo
               onChange2={onChange2}
               formdata2={formdata2}
@@ -154,12 +169,8 @@ width:100%;
       justify-content: space-between;
       width: 100%;
 
-      .w-90 auto {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 2rem 0;
+      .wrapper {
+        padding:0 2rem;
       }
 
       .EditProductWrapperTopLeft {

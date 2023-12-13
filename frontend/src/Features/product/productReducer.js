@@ -138,13 +138,16 @@ export const adminUpdateProduct = createAsyncThunk(
           "content-type": "application/json",
         },
       };
-      const { _id } = state.product.productDetails;
+      // const { _id } = state.product.productDetails;
+      // console.log(productData);
       const { data } = await axios.put(
-        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/product/admin/${_id}`,
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/product/admin/${productData?._id}`,
         productData,
         config
       );
-      localStorage.setItem("products", JSON.stringify(data.updatedproduct));
+      let productUrl = `${import.meta.env.VITE_API_BASE_URLS}/api/v1/product`;
+       await axios.get(productUrl)
+      // localStorage.setItem("products", JSON.stringify(data.updatedproduct));
       return data.updatedproduct;
     } catch (error) {
       return thunkAPI.rejectWithValue(

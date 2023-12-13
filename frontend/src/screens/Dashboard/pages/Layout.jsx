@@ -21,7 +21,8 @@ const LayoutWrapper = styled.div`
         height:100%;
         position: sticky;
         overflow: auto;
-
+        width:28rem;
+        
       }
     }
   }

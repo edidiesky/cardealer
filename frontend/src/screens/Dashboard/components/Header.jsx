@@ -14,7 +14,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
   .icon {
     width: 3.5rem;

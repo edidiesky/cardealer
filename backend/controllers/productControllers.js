@@ -96,7 +96,8 @@ const CreateSingleProduct = asyncHandler(async (req, res) => {
 // ADMIN
 const UpdateProduct = asyncHandler(async (req, res) => {
   // find the product
-  const product = await Product.findById({ _id: req.params.id });
+  // console.log(req.body)
+  const product = await Product.findOne({ _id: req.params.id });
   // check for existence
   if (!product) {
     res.status(404);
@@ -108,7 +109,8 @@ const UpdateProduct = asyncHandler(async (req, res) => {
     ...req.body,
     { new: true }
   );
-  res.status(200).json({ updatedproduct });
+  console.log(updatedproduct)
+  // res.status(200).json({ updatedproduct });
 });
 
 //PRIVATE/
