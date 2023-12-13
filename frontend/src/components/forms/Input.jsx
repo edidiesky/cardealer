@@ -33,18 +33,18 @@ const LabelContainer = styled.label`
   text-transform: capitalize;
 
   input {
-    height: 6rem;
+    height: 5.5rem;
     background: var(--white);
-    padding: 0 2.4rem;
+    padding: 0 2rem;
     width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.2);
     outline: none;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 400;
     font-family: "Barlow", sans-serif;
 
     &::placeholder {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-family: "Barlow", sans-serif;
     }
     &:focus {

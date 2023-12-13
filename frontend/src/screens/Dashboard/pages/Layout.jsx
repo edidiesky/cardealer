@@ -11,6 +11,9 @@ const LayoutWrapper = styled.div`
   .LayoutContainer {
     width: 100%;
     .OutletWrapper {
+      
+      /* background:red; */
+      overflow:auto;
       width: 100%;
       padding-bottom: 3.5rem;
     }
@@ -29,7 +32,8 @@ export default function Layout() {
       {/* <Smallsidebar /> */}
       <div className="LayoutContainer flex column">
         <Header />
-        <div className="OutletWrapper">
+        <div className="OutletWrapper flex h-100">
+          <Sidebar />
           <Outlet />
         </div>
       </div>

@@ -55,7 +55,10 @@ export default function App() {
         </Route>
 
         <Route path={"/car-dealership/dashboard"} element={<LayoutList />}>
-          <Route path={""} element={<AdminProductList />} />
+          <Route exact path={""} element={<AdminProductList />} />
+          <Route path={"order"} element={<OrderList />} />
+          <Route path={"customer"} element={<Customers />} />
+          <Route exact path={"profile"} element={<ProfileList />} />
         </Route>
       </Routes>
     </div>

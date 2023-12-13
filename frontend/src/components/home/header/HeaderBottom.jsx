@@ -116,7 +116,7 @@ const HeaderBottomContainer = styled.div`
         text-align: start;
       }
       li {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         font-weight: 500;
         color: var(--dark-1);
         transition: all 0.5s;

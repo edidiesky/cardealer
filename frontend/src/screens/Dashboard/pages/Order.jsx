@@ -25,10 +25,7 @@ export default function Order() {
     <>
       <Alert />
       {isLoading && <LoaderIndex loading={isLoading} />}
-      <Header
-        text={"My orders"}
-        subtext={"Here is what is happening with your orders today"}
-      />
+    
       <OrdersContainer>
         <Table>
           <div className="TableTop">

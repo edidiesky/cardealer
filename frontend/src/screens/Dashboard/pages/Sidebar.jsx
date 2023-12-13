@@ -11,12 +11,10 @@ import { MdDashboard, MdAddBusiness } from "react-icons/md";
 import { BsCollection } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 const SidebarWrapper = styled.div`
-  width: 24rem;
+  width: 28rem;
   background: var(--white);
-  height: 100vh;
-  top: 0%;
-  position: sticky;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  height: 100%;
+  border-right: 1px solid rgba(0, 0, 0, 0.09);
   @media (max-width: 780px) {
     display: inline-block;
     position: fixed;
@@ -30,8 +28,11 @@ const SidebarWrapper = styled.div`
     flex-direction: column;
     padding-top: 2rem;
     gap: 3rem;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
+    height: 100%;
+    top: 0%;
+    position: sticky;
     .imageWrapper {
       width: 100%;
       padding: 1.6rem 2rem;
@@ -44,7 +45,6 @@ const SidebarWrapper = styled.div`
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
       &.List1 {
         padding-top: 2rem;
         padding-bottom: 0;
@@ -62,29 +62,32 @@ const SidebarWrapper = styled.div`
       }
       .nav-link {
         padding: 8px 16px;
-        font-size: 1.3rem;
-        height: 4.2rem;
-        border-radius: 30px;
+        font-size: 1.2rem;
+        height: 5rem;
         font-weight: 600;
         margin: 0 auto;
         width: 100%;
-        color: var(--grey-1);
+        color: rgb(13, 13, 13);
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        gap: 1.4rem;
+        gap: 2rem;
+        position: relative;
 
         &:hover {
-          background: var(--blue-2);
-          color: #fff;
+          background: #f9f9f9;
         }
         svg {
           font-size: 2rem;
         }
         &.active {
+          /* position: absolute; */
           background: rgb(232 239 249 / 77%);
-          position: relative;
-          color: var(--blue-2);
+          color:var(--blue-1);
+          /* width: 4px;
+          height: 100%;
+          left: 0;
+          top: 0; */
         }
       }
     }
@@ -129,13 +132,6 @@ export default function Sidebar() {
   return (
     <SidebarWrapper>
       <div className="sidebarContainer">
-        <NavLink to={"/"} className="imageWrapper">
-          <img
-            src="/images/dealer1.png"
-            className="sidebarIcon"
-            alt="sidebarIcon"
-          />
-        </NavLink>
         <div className="list">
           {sidebarData.map((x) => {
             return (

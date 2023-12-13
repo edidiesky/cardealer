@@ -96,9 +96,17 @@ export default function Profile() {
         handleClearAlert={clearUserAlertError}
       />
       {isLoading && <LoaderIndex loading={isLoading} />}
-      <Header text={"My Profile"} />
+      {/* <Header text={"My Profile"} /> */}
       <ProfileContainer>
         <div className="profileWrapper">
+          <div className="profile_top w-100">
+            <h3 className="fs-24 text-dark">My Profile
+            <span style={{marginTop:"2rem"}} className="fs-14 family1 block text-dark text-light">Make changes to your profile such as your name, 
+            
+            lastname, email,
+            password etc.</span>
+            </h3>
+          </div>
           <form className="profileForm" onSubmit={handleUpdateUserProfile}>
             <div className="profileFormBottom">
               {inputData.slice(0, 6).map((input) => {
@@ -156,7 +164,15 @@ export default function Profile() {
 const ProfileContainer = styled.div`
   width: 95%;
   margin: 0 auto;
-  padding: 3rem 0;
+  /* padding: 3rem 0; */
+  .profile_top {
+    padding:0 3rem;
+    padding-top:3rem;
+    border-bottom:1px solid rgba(0,0,0,.09);
+    span {
+      padding:1rem 0;
+    }
+  }
   .profileWrapper {
     display: flex;
     flex-direction: column;
@@ -179,9 +195,9 @@ const ProfileContainer = styled.div`
       width: 100%;
       display: flex;
       align-items: center;
-      padding: 3.7rem 6rem;
+      padding: 3.7rem;
       background: var(--white);
-      border: 1px solid rgba(0, 0, 0, 0.2);
+      /* border: 1px solid rgba(0, 0, 0, 0.2); */
       border-radius: 6px;
       flex-direction: column;
       .btnWrapper {
@@ -208,9 +224,12 @@ const ProfileContainer = styled.div`
       .profileFormBottom {
         display: grid;
         width: 100%;
-        grid-template-columns:1fr;
-        grid-gap: 1.4rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 3rem;
         padding: 0.4rem 0;
+        @media (max-width: 780px) {
+          grid-template-columns: 1fr;
+        }
       }
     }
   }

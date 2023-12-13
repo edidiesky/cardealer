@@ -4,6 +4,7 @@ import { ToggleSidebar } from "../../../Features";
 import { useSelector, useDispatch } from "react-redux";
 import { CgMenuRight } from "react-icons/cg";
 import { BiUser } from "react-icons/bi";
+import { Link } from "react-router-dom";
 const HeaderWrapper = styled.div`
   background: var(--white);
   position: sticky;
@@ -95,10 +96,10 @@ export default function Header({ text, subtext }) {
   return (
     <HeaderWrapper>
       <div className="headerContainer">
-        <h4>
-          Avada
-          {/* <span className="span1">{subtext}</span> */}
-        </h4>
+        <Link to={"/"}>
+          <img style={{width:"8rem"}} className="imageIcon" src="/images/dealer1.png" alt="images" />
+        </Link>
+       
 
         <div className="headerLeft">
           <div className="flex item-center gap-1">
