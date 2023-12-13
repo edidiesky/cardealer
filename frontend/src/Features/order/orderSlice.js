@@ -18,12 +18,12 @@ const initialState = {
   order: null,
   orders: null,
   isLoading: false,
-  token: "",
   showAlert: false,
   alertText: "",
   alertType: "",
   loadingPay: false,
   successPay: false,
+  url:'',
   loadingdelivered: false,
   successdelivered: false,
   orderStats: null,
@@ -66,7 +66,8 @@ const orderSlice = createSlice({
     },
     [createCustomersOrder.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.order = action.payload;
+      state.order = action.payload.order;
+      state.url = action.payload.url;
       state.isSuccess = true;
     },
     [createCustomersOrder.rejected]: (state, action) => {

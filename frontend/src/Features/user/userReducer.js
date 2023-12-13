@@ -9,7 +9,7 @@ export const registerCustomer = createAsyncThunk(
     try {
       const { data } = await axios.post(Registerurl, registerData);
       localStorage.setItem("customer", JSON.stringify(data.user));
-      localStorage.setItem("customertoken", data.token);
+      localStorage.setItem("token", data.token);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -27,7 +27,7 @@ export const loginCustomer = createAsyncThunk(
     try {
       const { data } = await axios.post(Loginurl, loginData);
       localStorage.setItem("customer", JSON.stringify(data.user));
-      localStorage.setItem("customertoken", data.token);
+      localStorage.setItem("token", data.token);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

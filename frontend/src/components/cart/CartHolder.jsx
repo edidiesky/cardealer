@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { calculateBagItem, createCustomersOrder } from "../../Features";
 export default function CartHolder() {
   const { productDetails } = useSelector((store) => store.product);
-  const { order } = useSelector((store) => store.order);
+  const { order, url } = useSelector((store) => store.order);
   const naigate = useNavigate()
   const {
     bag,
@@ -27,6 +27,8 @@ export default function CartHolder() {
   };
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // const orders = bag
   const handleCreateOrder = () => {
     // Call backend function to fulfill order
     if(userInfo) {
@@ -40,11 +42,18 @@ export default function CartHolder() {
     dispatch(calculateBagItem());
   }, [productDetails?.quantity, bag]);
 
-  useEffect(() => {
-    if (order?._id) {
-      navigate(`/car-dealership/billing?paymentId=${order?._id}`);
-    }
-  }, [order?._id, navigate]);
+  // useEffect(() => {
+  //   if (order?._id) {
+  //     navigate(`/car-dealership/billing?paymentId=${order?._id}`);
+  //   }
+  // }, [order?._id, navigate]);
+
+
+   useEffect(() => {
+     if (url) {
+       window.location.href = url;
+     }
+   }, [url]);
   return (
     <CartHolderContainer>
       <h2>Cart Holder</h2>
@@ -94,11 +103,11 @@ const CartHolderContainer = styled.div`
       padding: 1.5rem 4rem;
       background: var(--red);
       color: #fff;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       text-align: center;
       cursor: pointer;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 1px;
       &:hover {
         background: var(--blue-1);

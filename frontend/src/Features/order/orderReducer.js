@@ -4,20 +4,27 @@ import axios from "axios";
 export const createCustomersOrder = createAsyncThunk(
   "/create/order",
   async (orderData, thunkAPI) => {
-    try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order`,
-        orderData
-      );
+   const state = thunkAPI.getState();
+   try {
+     const config = {
+       headers: {
+         authorization: `Bearer ${state.user.token}`,
+       },
+     };
+     const { data } = await axios.post(
+       `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order`,
+       orderData,
+       config
+     );
 
-      return data.order;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
-      );
-    }
+     return data;
+   } catch (error) {
+     return thunkAPI.rejectWithValue(
+       error.response && error.response.data.message
+         ? error.response.data.message
+         : error.message
+     );
+   }
   }
 );
 

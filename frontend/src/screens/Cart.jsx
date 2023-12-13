@@ -61,4 +61,5 @@ export default function Cart() {
 
 const CartContainer = Styled.div`
 width:100%;
+min-height:100vh;
 `;

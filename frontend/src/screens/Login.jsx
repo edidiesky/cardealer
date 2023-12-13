@@ -135,6 +135,7 @@ export default function Auth() {
 
 const AuthContent = styled.div`
   width: 100%;
+  min-height:100vh;
   .authContentWrapper {
     display: flex;
     align-items: center;

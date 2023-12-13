@@ -4,8 +4,16 @@ import User from "../models/User.js";
 
 const authMiddleware = (req, res, next) => {
   //check for the token
-  const token = req.cookies.token;
-  // console.log(token.split('=')[1]);
+   const authenticationheader = req.headers.authorization;
+
+   if (!authenticationheader || !authenticationheader.startsWith("Bearer ")) {
+     res.status(403).json({
+       messsage: "Please provide the token. No token has been provided",
+     });
+   }
+
+   //get the token
+   const token = authenticationheader.split(" ")[1];
 
   if (!token) {
     res.status(403).json({

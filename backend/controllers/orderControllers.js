@@ -1,6 +1,10 @@
+import dotenv from "dotenv";
+dotenv.config();
 import Product from "../models/Product.js";
 import Order from "../models/Order.js";
 import moment from "moment";
+import stripe from "stripe";
+const stripeClient = stripe(process.env.STRIPE_KEY);
 import asyncHandler from "express-async-handler";
 
 // GET All Order
@@ -81,7 +85,30 @@ const CreateOrder = async (req, res) => {
     TotalShoppingPrice,
   });
 
-  res.status(200).json({ order });
+  const session = await stripeClient.checkout.sessions.create({
+    line_items: orderItems.map((items) => {
+      return {
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: items.title,
+            images: items.image,
+          },
+          unit_amount: items.price,
+        },
+        quantity: items.quantity,
+      };
+    }),
+    mode: "payment",
+    payment_method_types: ["card"],
+    success_url: `${process.env.WEB_ORIGIN}/${order?._id}/order`,
+    cancel_url: `${process.env.WEB_ORIGIN}`,
+  });
+
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+
+  res.status(200).json({ order, url: session.url });
 };
 
 // Update Order to paid for the user

@@ -110,7 +110,7 @@ const LoginUser = asyncHandler(async (req, res) => {
 
   res
     .status(200)
-    .json({ user });
+    .json({ user, token });
 });
 //PRIVATE/ADMIN
 const GetUser = asyncHandler(async (req, res) => {
