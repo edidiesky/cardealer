@@ -111,17 +111,17 @@ export const sidebarData = [
     id: 1,
     icon1: <MdDashboard />,
     title: "Dashboard",
-    path: "",
+    path: "car-dealership/dashboard/",
   },
   {
     id: 3,
     icon1: <MdAddBusiness />,
     title: "Add Products",
-    path: "create-product",
+    path: "car-dealership/dashboard/create-product",
   },
-  { id: 4, icon1: <BsCollection />, title: "Orders", path: "order" },
-  { id: 5, icon1: <HiUsers />, title: "Customers", path: "customer" },
-  { id: 6, icon1: <CgProfile />, title: "Profile", path: "profile" },
+  { id: 4, icon1: <BsCollection />, title: "Orders", path: "car-dealership/dashboard/order" },
+  { id: 5, icon1: <HiUsers />, title: "Customers", path: "car-dealership/dashboard/customer" },
+  { id: 6, icon1: <CgProfile />, title: "Profile", path: "car-dealership/dashboard/profile" },
 ];
 
 export const sidebarData2 = [
@@ -153,9 +153,10 @@ export default function Sidebar() {
           {sidebarData.map((x) => {
             return (
               <NavLink
-                className="nav-link family1"
-                activeClassName="active"
-                to={`/car-dealership/dashboard/${x.path}`}
+                className={({ isActive, isPending }) =>
+                  isActive ? "nav-link family1 fs-15 active" : "nav-link family1 fs-15"
+                }
+                to={`/${x.path}`}
                 key={x.id}
               >
                 {x.icon1}
@@ -168,7 +169,11 @@ export default function Sidebar() {
         <div className="list List1">
           {sidebarData2.map((x) => {
             return (
-              <div className="nav-link family1" onClick={handleLogOut} key={x.id}>
+              <div
+                className="nav-link family1"
+                onClick={handleLogOut}
+                key={x.id}
+              >
                 {x.icon1} {x.title}
               </div>
             );
