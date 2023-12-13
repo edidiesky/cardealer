@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { calculateBagItem, createCustomersOrder } from "../../Features";
+import LoaderIndex from "../loaders";
 export default function CartHolder() {
   const { productDetails } = useSelector((store) => store.product);
-  const { order, url } = useSelector((store) => store.order);
+  const { order, url, isLoading } = useSelector((store) => store.order);
   const naigate = useNavigate()
   const {
     bag,
@@ -13,8 +14,9 @@ export default function CartHolder() {
     shippingPrice,
     estimatedTax,
     TotalShoppingPrice,
+
   } = useSelector((store) => store.bag);
-  const [payment, setPayment] = useState("Paypal");
+  const [payment, setPayment] = useState("Stripe");
   const { addressData,userInfo } = useSelector((store) => store.user);
 
   const orderData = {
@@ -67,8 +69,9 @@ export default function CartHolder() {
         Total <span className="subspan span1">${TotalShoppingPrice}</span>
       </h4>
       <div className="btnWrapper">
-        <button onClick={handleCreateOrder} className="editBtn">
+        <button onClick={handleCreateOrder} className="editBtn flex item-center gap-2 justify-center">
           Place Order
+          {isLoading && <LoaderIndex type={"dots"} color={"#fff"} />}
         </button>
       </div>
     </CartHolderContainer>

@@ -17,7 +17,7 @@ import {
   Blog,
   Offer,
   Services,
-  // Order,
+  Order,
   Search,
 } from "./screens";
 
@@ -51,6 +51,7 @@ export default function App() {
           <Route path={"car-dealership/auth/login"} element={<Login />} />
           <Route path={"car-dealership/auth/register"} element={<Register />} />
           <Route path={"car-dealership/profile"} element={<Profile />} />
+          <Route path={":id/order"} element={<Order />} />
         </Route>
       </Routes>
     </div>

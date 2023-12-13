@@ -3,7 +3,7 @@ import { ThreeDots } from "react-loader-spinner";
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
-export default function LoaderIndex({type}) {
+export default function LoaderIndex({type,color}) {
   const [open, setOpen] = React.useState(true);
   const handleToggle = () => {
     setOpen(!open);

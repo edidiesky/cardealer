@@ -21,7 +21,7 @@ export default function Info() {
               <h4 className="fs-18 family1 text-bold text-dark">Sub Total</h4>
             </div>
             {/* order content */}
-            {bag?.map((x) => {
+            {order?.orderItems?.map((x) => {
               return (
                 <div className="w-100 flex item-center gap-3">
                   {/* order image */}
@@ -49,7 +49,7 @@ export default function Info() {
           {/* order summary */}
           <div className="w-50 flex gap-2 column">
             <h5 className="text-bold family1 fs-18 text-dark w-100 flex item-center justify-space">
-            EstimatedTax
+              EstimatedTax
               <span className="text-light">${order?.estimatedTax}</span>
             </h5>
 

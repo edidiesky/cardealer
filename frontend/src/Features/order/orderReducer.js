@@ -158,19 +158,28 @@ export const getAllCustomersOrder = createAsyncThunk(
 export const updateCustomersOrderToPaid = createAsyncThunk(
   "/update/order",
   async (details, thunkAPI) => {
-    const state = thunkAPI.getState();
-    try {
-      const { _id } = state.order.order;
-      const { data } = await axios.put(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${_id}/pay`, details);
+     const state = thunkAPI.getState();
+     try {
+       const config = {
+         headers: {
+           authorization: `Bearer ${state.user.token}`,
+         },
+       };
+      //  const { _id } = state.order.order;
+       const { data } = await axios.put(
+         `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${details}/pay`,
+         details,
+         config
+       );
 
-      return data.updatedOrder;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
-      );
-    }
+       return data.updatedOrder;
+     } catch (error) {
+       return thunkAPI.rejectWithValue(
+         error.response && error.response.data.message
+           ? error.response.data.message
+           : error.message
+       );
+     }
   }
 );
 

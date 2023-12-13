@@ -1,13 +1,27 @@
 import React, { useEffect } from "react";
 import { Banner, Meta } from "../components/common";
+import { useSearchParams, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import OrderIndex from "../components/order";
 import Info from "../components/order/Info";
 import styled from "styled-components";
+import { updateCustomersOrderToPaid } from "../Features";
 
 export default function Order() {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+
+   const { id } = useParams();
+   console.log(id)
+   const dispatch = useDispatch();
+   const { order } = useSelector((store) => store.order);
+   // console.log(order);
+   useEffect(() => {
+     if (id) {
+       dispatch(updateCustomersOrderToPaid(id));
+     }
+   }, [id]);
   return (
     <>
       <Meta title={"My Orders"} />
@@ -25,6 +39,7 @@ export default function Order() {
 }
 
 const OrderWrapper = styled.div`
+min-height:100vh;
   .py-3 {
     padding: 0;
     @media (max-width: 480px) {
