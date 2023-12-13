@@ -27,7 +27,7 @@ export default function OrderIndex() {
     <div className="py-3 w-90 auto">
       <h2
         className="py-2 family1 text-bold text-dark"
-        style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}
+        style={{ borderBottom: "1px solid rgba(0,0,0,.1)", paddingLeft:"3rem" }}
       >
         Thank you. Your order has been received.
       </h2>
@@ -48,7 +48,7 @@ export default function OrderIndex() {
               style={{ color: "#fff" }}
             />
           </div>
-          <div className="fs-18 family1 text-light text-dark">
+          <div className="fs-16 family1 text-light text-dark">
             Order number: <strong className="text-bold">{order?._id}</strong>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function OrderIndex() {
               style={{ color: "#fff" }}
             />
           </div>
-          <div className="fs-18 family1 text-light text-dark">
+          <div className="fs-16 family1 text-light text-dark">
             Date: <strong className="text-bold">{createddate}</strong>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function OrderIndex() {
               style={{ color: "#fff" }}
             />
           </div>
-          <div className="fs-18 family1 text-light text-dark">
+          <div className="fs-16 family1 text-light text-dark">
             Total:{" "}
             <strong className="text-bold">${order?.TotalShoppingPrice}</strong>
           </div>
@@ -112,7 +112,7 @@ export default function OrderIndex() {
               style={{ color: "#fff" }}
             />
           </div>
-          <div className="fs-18 family1 text-light text-dark">
+          <div className="fs-16 family1 text-light text-dark">
             Payment method:{" "}
             <strong className="text-bold">{order?.paymentMethod}</strong>
           </div>

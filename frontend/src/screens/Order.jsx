@@ -6,6 +6,7 @@ import OrderIndex from "../components/order";
 import Info from "../components/order/Info";
 import styled from "styled-components";
 import { updateCustomersOrderToPaid } from "../Features";
+import { clearBagItems } from "../Features/bag/bagSlice";
 
 export default function Order() {
   useEffect(() => {
@@ -20,6 +21,7 @@ export default function Order() {
    useEffect(() => {
      if (id) {
        dispatch(updateCustomersOrderToPaid(id));
+       dispatch(clearBagItems())
      }
    }, [id]);
   return (
@@ -27,19 +29,21 @@ export default function Order() {
       <Meta title={"My Orders"} />
       {/* <Banner1/> */}
       <Banner title="Order Success" />
-      <OrderWrapper
-        className="py-2 w-90 auto flex column"
-        style={{ border: "1px solid rgba(0,0,0,.1)", margin: "2rem auto" }}
-      >
-        <OrderIndex />
-        <Info />
-      </OrderWrapper>
+      <div style={{minHeight:"100vh"}} className="w-100">
+        <OrderWrapper
+          className="py-2 w-90 auto flex column"
+          style={{ border: "1px solid rgba(0,0,0,.1)", margin: "2rem auto" }}
+        >
+          <OrderIndex />
+          <Info />
+        </OrderWrapper>
+      </div>
     </>
   );
 }
 
 const OrderWrapper = styled.div`
-min-height:100vh;
+
   .py-3 {
     padding: 0;
     @media (max-width: 480px) {

@@ -63,6 +63,12 @@ const bagSlice = createSlice({
     clearCartAlert: (state, action) => {
       state.cartAlert = false;
     },
+
+    clearBagItems: (state, action) => {
+      state.bag = [];
+      localStorage.removeItem("bagItem")
+
+    },
     clearCartMessage: (state, action) => {
       state.showAlert = false;
       state.alertText = "";
@@ -102,7 +108,7 @@ const bagSlice = createSlice({
       // then increase the required item
       const result = state.bag.map((item) => {
         if (item._id === bagPayload._id) {
-          let num = parseInt(item.quantity) + 1
+          let num = parseInt(item.quantity) + 1;
           return { ...item, quantity: num };
         }
         return item;
@@ -122,7 +128,7 @@ const bagSlice = createSlice({
         if (item._id === bagPayload._id) {
           return {
             ...item,
-            quantity: (parseInt(item.quantity) - 1),
+            quantity: parseInt(item.quantity) - 1,
           };
         }
         return item;
@@ -152,7 +158,9 @@ const bagSlice = createSlice({
       state.shippingPrice = state.totalPrice > 10000 ? 100 : 0;
       state.estimatedTax = (state.totalPrice * 0.15).toFixed(2);
       state.TotalShoppingPrice =
-        (parseInt(state.shippingPrice) + parseInt(state.estimatedTax) + state.totalPrice);
+        parseInt(state.shippingPrice) +
+        parseInt(state.estimatedTax) +
+        state.totalPrice;
       localStorage.setItem("TotalShoppingPrice", state.TotalShoppingPrice);
     },
     removeBagItem: (state, action) => {
@@ -221,6 +229,7 @@ export const {
   decreaseBagQty,
   onCartAlert,
   clearCartMessage,
+  clearBagItems,
 } = bagSlice.actions;
 
 export default bagSlice.reducer;

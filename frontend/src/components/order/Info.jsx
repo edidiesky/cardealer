@@ -8,7 +8,7 @@ export default function Info() {
     <div className=" w-90 auto py-3">
       <h2
         className="py-2 family1 text-bold text-dark"
-        style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}
+        style={{ borderBottom: "1px solid rgba(0,0,0,.1)", paddingLeft:"3rem" }}
       >
         Order details
       </h2>
@@ -26,7 +26,7 @@ export default function Info() {
                 <div className="w-100 flex item-center gap-3">
                   {/* order image */}
                   <div className="w-100 flex item-center product gap-1">
-                    <img src={x?.image[0]} alt="" style={{ height: "15rem" }} />
+                    <img src={x?.image[0]} alt="" style={{ height: "10rem" }} />
                     <div className="flex column gap-1">
                       <h6 className="fs-16 text-bold family1 text-dark">
                         {x?.title} × {x?.quantity}
@@ -48,16 +48,16 @@ export default function Info() {
         <div className="flex summary center py-2">
           {/* order summary */}
           <div className="w-50 flex gap-2 column">
-            <h5 className="text-bold family1 fs-18 text-dark w-100 flex item-center justify-space">
+            <h5 className="text-bold family1 fs-16 text-dark w-100 flex item-center justify-space">
               EstimatedTax
               <span className="text-light">${order?.estimatedTax}</span>
             </h5>
 
-            <h5 className="text-bold family1 fs-18 text-dark w-100 flex item-center justify-space">
+            <h5 className="text-bold family1 fs-16 text-dark w-100 flex item-center justify-space">
               Payment method
               <span className="text-light">{order?.paymentMethod}</span>
             </h5>
-            <h5 className="text-bold family1 fs-18 text-dark w-100 flex gap-2 item-center justify-space">
+            <h5 className="text-bold family1 fs-16 text-dark w-100 flex gap-2 item-center justify-space">
               Total
               <span className="text-light">${order?.TotalShoppingPrice}</span>
             </h5>
