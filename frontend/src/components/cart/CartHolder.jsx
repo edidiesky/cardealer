@@ -86,8 +86,12 @@ const CartHolderContainer = styled.div`
   flex-direction: column;
   gap: 2rem;
   margin-bottom: 2rem;
-  @media (max-width: 680px) {
+  @media (max-width: 780px) {
     width: 70%;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
   }
   h2 {
     font-size: 3rem;

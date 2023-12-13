@@ -131,7 +131,7 @@ button {
 .input {
   border: none;
   outline: none;
-  font-family: "Barlow", sans-serif;
+  font-family: "Montserrat", sans-serif !important;
   background-color: transparent;
 }
 .text-green {
@@ -563,7 +563,7 @@ html {
     font-size: 5rem !important;
   }
   h2 {
-    font-size: 30px !important;
+    font-size: 2.7rem !important;
     line-height: 1.1;
     width: 100% !important;
   }

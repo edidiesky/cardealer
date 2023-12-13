@@ -41,11 +41,11 @@ const LabelContainer = styled.label`
     outline: none;
     font-size: 1.4rem;
     font-weight: 400;
-    font-family: "Barlow", sans-serif;
+    /* font-family: "Barlow", sans-serif; */
 
     &::placeholder {
       font-size: 1.4rem;
-      font-family: "Barlow", sans-serif;
+      /* font-family: "Barlow", sans-serif; */
     }
     &:focus {
       border: 1.7px solid #222;

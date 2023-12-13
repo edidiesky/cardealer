@@ -64,7 +64,7 @@ const CartContentContainer = styled.div`
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--text-color);
     padding: 2rem 0;

@@ -99,14 +99,14 @@ export default function HeaderTop() {
               {userInfo?.isAdmin ? (
                 <div className="profileList">
                   <Link
-                    target="_blank"
+                
                     className="link"
                     to={"/car-dealership/profile"}
                   >
                     Profile
                   </Link>
                   <Link
-                    target="_blank"
+                
                     className="link"
                     to={"/car-dealership/dashboard/"}
                   >
@@ -127,39 +127,7 @@ export default function HeaderTop() {
                 </div>
               )}
             </div>
-            {/* <div className="authorWrapper flex gap-1 item-center">
-             
-              {userInfo?.isAdmin ? (
-                <div className="profileList">
-                  <Link
-                    target="_blank"
-                    className="link"
-                    to={"/car-dealership/profile"}
-                  >
-                    Profile
-                  </Link>
-                  <Link
-                    target="_blank"
-                    className="link"
-                    to={"/car-dealership/dashboard"}
-                  >
-                    Dashboard
-                  </Link>
-                  <div className="logOut link" onClick={handleLogOut}>
-                    Sign out
-                  </div>
-                </div>
-              ) : (
-                <div className="profileList list1">
-                  <Link target="_blank" className="link" to={"profile"}>
-                    Profile
-                  </Link>
-                  <div className="link logOut" onClick={handleLogOut}>
-                    Sign out
-                  </div>
-                </div>
-              )}
-            </div> */}
+           
           </div>
         ) : (
           <div className="headerTopProfile">
@@ -224,13 +192,23 @@ const HeaderTopContainer = styled.div`
       width: 100%;
       gap: 2rem;
     }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 2rem;
+      align-items: flex-start;
+    }
     .headerTopWrapperContent {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
       @media (max-width: 780px) {
-        width: 100%;
+        /* width: 100%; */
+      }
+      @media (max-width: 480px) {
+       justify-content:space-between;
+       width:100%;
       }
       .headerTopLeft {
         display: flex;
