@@ -36,6 +36,11 @@ app.use(
   "/public/uploads",
   express.static(path.join(__dirname, "/public/uploads"))
 );
+app.use(express.static(path.join(__dirname, "frontend/dist/build")));
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend/dist/build", "index.html"));
+});
 
 // console.log(path.join(__dirname, "/public/uploads"));
 
