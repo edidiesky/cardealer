@@ -87,6 +87,12 @@ export const getCustomerOrderById = createAsyncThunk(
   async (orderId, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
+      const config = {
+       headers: {
+         authorization: `Bearer ${state.user.token}`,
+         "content-type": "application/json",
+       },
+     };
       const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${orderId}`);
 
       return data.order;
@@ -105,6 +111,12 @@ export const getCustomerOrderStats = createAsyncThunk(
   async (id, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
+      const config = {
+       headers: {
+         authorization: `Bearer ${state.user.token}`,
+         "content-type": "application/json",
+       },
+     };
       const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/stats`);
 
       return data.totalOrder;
@@ -123,7 +135,16 @@ export const getCustomerOrder = createAsyncThunk(
   async (id, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/customer/order`);
+      const config = {
+       headers: {
+         authorization: `Bearer ${state.user.token}`,
+         "content-type": "application/json",
+       },
+     };
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/customer/order`,
+        config
+      );
 
       return data.order;
     } catch (error) {
@@ -141,8 +162,17 @@ export const getAllCustomersOrder = createAsyncThunk(
   async (id, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
+       const config = {
+         headers: {
+           authorization: `Bearer ${state.user.token}`,
+           "content-type": "application/json",
+         },
+       };
       const { orderpage } = state.order;
-      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order?page=${orderpage}`);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order?page=${orderpage}`,
+        config
+      );
 
       return data;
     } catch (error) {

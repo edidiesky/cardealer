@@ -24,7 +24,7 @@ const LayoutWrapper = styled.div`
         height: 100%;
         position: sticky;
         overflow: auto;
-        width: 28rem;
+        width: 280px;
       }
     }
   }
@@ -44,9 +44,11 @@ export default function Layout() {
         <Header />
         <div className="OutletWrapper flex">
           <div className="sidebar_wrapper">
-            <Sidebar/>
+            <Sidebar />
           </div>
-          <Outlet />
+          <div className="w-100">
+            <Outlet />
+          </div>
         </div>
       </div>
     </LayoutWrapper>

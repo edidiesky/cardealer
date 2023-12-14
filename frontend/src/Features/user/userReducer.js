@@ -92,16 +92,27 @@ export const getSingleCustomer = createAsyncThunk(
   "getSingleCustomer",
   async (name, thunkAPI) => {
     const state = thunkAPI.getState();
-    try {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth/admin/profile/${name}`);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
-      );
-    }
+   try {
+     const config = {
+       headers: {
+         authorization: `Bearer ${state.user.token}`,
+         "content-type": "application/json",
+       },
+     };
+     const { data } = await axios.get(
+       `${
+         import.meta.env.VITE_API_BASE_URLS
+       }/api/v1/auth/admin/profile/${name}`,
+       config
+     );
+     return data;
+   } catch (error) {
+     return thunkAPI.rejectWithValue(
+       error.response && error.response.data.message
+         ? error.response.data.message
+         : error.message
+     );
+   }
   }
 );
 

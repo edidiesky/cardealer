@@ -128,7 +128,8 @@ export const Table = styled.div`
     .tableWrapper {
       border-collapse: collapse;
       width: 100%;
-      min-width: 1000px;
+      min-width:100%;
+      /* max-width: 1000px; */
 
       thead {
         tr {

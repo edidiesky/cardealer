@@ -18,12 +18,19 @@ const SidebarWrapper = styled.div`
   border-right: 1px solid rgba(0, 0, 0, 0.09);
   /* min-height: 100%; */
 
-  @media (max-width: 480px) {
+  /* @media (max-width: 480px) {
     display: inline-block;
     position: fixed;
     top: 0;
     left: -100%;
     display: none;
+  } */
+  .sidebar_top {
+    @media (max-width: 1280px) {
+      width: 7.7rem;
+      height: 7.7rem;
+      display: none;
+    }
   }
   .profile_image {
     width: 10rem;
@@ -31,9 +38,10 @@ const SidebarWrapper = styled.div`
     height: 10rem;
     font-size: 4rem;
     border-radius: 50%;
-    @media (max-width: 480px) {
+    @media (max-width: 1180px) {
       width: 7.7rem;
       height: 7.7rem;
+      display: none;
     }
   }
 
@@ -75,7 +83,7 @@ const SidebarWrapper = styled.div`
       .nav-link {
         padding: 10px 30px;
         font-size: 1.36rem;
-        height: 5rem;
+        min-height: 5rem;
         font-weight: 500;
         margin: 0 auto;
         width: 100%;
@@ -85,6 +93,18 @@ const SidebarWrapper = styled.div`
         justify-content: flex-start;
         gap: 3rem;
         position: relative;
+        @media (max-width: 1180px) {
+          padding: 10px 0;
+          justify-content: center;
+          flex-direction:column;
+          gap:1rem;
+        }
+
+        span {
+          /* @media (max-width: 1180px) {
+            display: none;
+          } */
+        }
 
         &:hover {
           background: #f9f9f9;
@@ -138,7 +158,7 @@ export default function Sidebar() {
   return (
     <SidebarWrapper>
       <div className="sidebarContainer flex item-center  column">
-        <div className="w-100 flex item-center justify-center  column gap-1">
+        <div className="w-100 sidebar_top flex item-center justify-center  column gap-1">
           <div className="profile_image flex item-center justify-center text-white fs-30">
             E
           </div>
@@ -161,7 +181,7 @@ export default function Sidebar() {
                 end
               >
                 {x.icon1}
-                {x.title}
+                <span>{x.title}</span>
               </NavLink>
             );
           })}
@@ -176,7 +196,7 @@ export default function Sidebar() {
                 onClick={handleLogOut}
                 key={x.id}
               >
-                {x.icon1} {x.title}
+                {x.icon1} <span>{x.title}</span>
               </div>
             );
           })}
