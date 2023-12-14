@@ -20,16 +20,16 @@ import mongoose from "mongoose";
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookie());
-import productRoute from "./routes/productRoute.js";
-import userRoute from "./routes/userRoute.js";
+// import productRoute from "./routes/productRoute.js";
+// import userRoute from "./routes/userRoute.js";
 
-import uploadRoute from "./routes/uploadRoute.js";
-import orderRoute from "./routes/orderRoutes.js";
+// import uploadRoute from "./routes/uploadRoute.js";
+// import orderRoute from "./routes/orderRoutes.js";
 
-app.use("/api/v1/product", productRoute);
-app.use("/api/v1/auth", userRoute);
-app.use("/api/v1/order", orderRoute);
-app.use("/api/v1/upload", uploadRoute);
+// app.use("/api/v1/product", productRoute);
+// app.use("/api/v1/auth", userRoute);
+// app.use("/api/v1/order", orderRoute);
+// app.use("/api/v1/upload", uploadRoute);
 const __dirname = path.resolve();
 
 app.use(
