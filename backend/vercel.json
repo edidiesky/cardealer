@@ -6,9 +6,7 @@
       "use": "@vercel/node"
     }
   ],
-  "rewrites": [
-        {"source": "/(.*)", "destination": "/"}
-    ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
   "routes": [
     {
       "src": "/api/(.*)",
@@ -24,6 +22,10 @@
     },
     {
       "src": "/api/v1/upload/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
       "dest": "server.js"
     }
   ]
