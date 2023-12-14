@@ -1,6 +1,7 @@
 {
   "version": 2,
   "devCommand": "npm run dev",
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
   "builds": [
     {
       "src": "server.js",
