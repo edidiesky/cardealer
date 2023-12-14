@@ -117,11 +117,11 @@ export const sidebarData = [
     id: 3,
     icon1: <MdAddBusiness />,
     title: "Add Products",
-    path: "create-product",
+    path: "/create-product",
   },
-  { id: 4, icon1: <BsCollection />, title: "Orders", path: "order" },
-  { id: 5, icon1: <HiUsers />, title: "Customers", path: "customer" },
-  { id: 6, icon1: <CgProfile />, title: "Profile", path: "profile" },
+  { id: 4, icon1: <BsCollection />, title: "Orders", path: "/order" },
+  { id: 5, icon1: <HiUsers />, title: "Customers", path: "/customer" },
+  { id: 6, icon1: <CgProfile />, title: "Profile", path: "/profile" },
 ];
 
 export const sidebarData2 = [
@@ -144,8 +144,8 @@ export default function Sidebar() {
           </div>
           <h5 className="fs-16 family1 text-center text-dark text-bold">
             Edidiong Essien
-            <span className="fs-12 py-1 text-dark text-light block">
-              Your Dashboard
+            <span className="fs-13 py-1 text-dark text-light block">
+              My Dashboard
             </span>
           </h5>
         </div>
@@ -153,17 +153,19 @@ export default function Sidebar() {
           {sidebarData.map((x) => {
             return (
               <NavLink
-                className={({ isActive, isPending }) =>
-                  isActive ? "nav-link family1 fs-15 active" : "nav-link family1 fs-15"
-                }
-                to={`/car-dealership/dashboard/${x.path}`}
+                className={"nav-link family1 fs-15"}
+                activeClassName="active"
+                exact={true}
+                to={`/car-dealership/dashboard${x.path}`}
                 key={x.id}
+                end
               >
                 {x.icon1}
                 {x.title}
               </NavLink>
             );
           })}
+        
         </div>
 
         <div className="list List1">

@@ -176,8 +176,18 @@ export default function EditUser() {
     <>
       <Message alertText={alertText} alertType={alertType} />
       {isLoading && <LoaderIndex loading={isLoading} />}
-      <Header text={`Edit ${userDetails?.firstname}'s profile`} />
       <ProfileContainer>
+        <div className="profile_top w-100">
+          <h3 className="fs-24 text-dark">
+            Manage Customer
+            <span
+              style={{ marginTop: "2rem" }}
+              className="fs-14 family1 block text-dark text-light"
+            >
+              Make some adjustments to the role, email, location of your customer
+            </span>
+          </h3>
+        </div>
         <div className="profileWrapper">
           <form className="profileForm" onSubmit={handleUpdateUserProfile}>
             <div className="profileFormBottom">
@@ -234,10 +244,16 @@ export default function EditUser() {
 }
 
 const ProfileContainer = styled.div`
-  width: 95%;
-  margin: 0 auto;
-  padding: 1rem 0;
-  padding-top: 3rem;
+  width: 100%;
+
+  .profile_top {
+    padding: 0 3rem;
+    padding-top: 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    span {
+      padding: 1rem 0;
+    }
+  }
   .profileWrapper {
     display: flex;
     flex-direction: column;
@@ -302,9 +318,13 @@ const ProfileContainer = styled.div`
       .profileFormBottom {
         display: grid;
         width: 100%;
-        grid-template-columns: 1fr;
-        grid-gap: 1.4rem;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2rem;
         padding: 0.4rem 0;
+        @media (max-width: 580px) {
+          grid-template-columns: 1fr;
+          grid-gap: 3rem;
+        }
       }
     }
   }

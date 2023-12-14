@@ -55,9 +55,9 @@ export default function App() {
         </Route>
 
         <Route path={"/car-dealership/dashboard"} element={<LayoutList />}>
-          <Route exact index element={<AdminProductList />} />
-          <Route path={"order"} element={<OrderList />} />
-          <Route path={"customer"} element={<Customers />} />
+          <Route exact path={"order"} element={<OrderList />} />
+
+          <Route exact path={"customer"} element={<Customers />} />
           <Route exact path={"profile"} element={<ProfileList />} />
           <Route
             exact
@@ -65,7 +65,10 @@ export default function App() {
             element={<CreateProductIndex />}
           />
 
+          <Route exact path={"customer/:id"} element={<EditUser />} />
+
           <Route exact path={"product/:id"} element={<EditProductIndex />} />
+          <Route exact index element={<AdminProductList />} />
         </Route>
       </Routes>
     </div>

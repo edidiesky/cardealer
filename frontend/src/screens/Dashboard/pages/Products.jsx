@@ -55,7 +55,7 @@ export default function Products() {
     }
   }, [search, dispatch]);
 
-  console.log(product);
+  // console.log(product);
 
   return (
     <>
