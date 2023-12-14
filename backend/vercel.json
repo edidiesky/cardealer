@@ -1,6 +1,6 @@
 {
   "version": 2,
-
+  "devCommand": "npm run dev",
   "builds": [
     {
       "src": "server.js",
@@ -10,18 +10,6 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/api/v1/auth/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/api/v1/order/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/api/v1/upload/(.*)",
       "dest": "server.js"
     },
     {
