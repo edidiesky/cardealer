@@ -29,7 +29,6 @@ const registerUser = asyncHandler(async (req, res) => {
     password: hashedpassword,
     phone,
     country,
-    isAdmin,
   };
   let user = await User.create(Tempuser);
   //

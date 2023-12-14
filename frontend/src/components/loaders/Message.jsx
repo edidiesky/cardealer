@@ -17,14 +17,14 @@ export default function Message({
       className={
         showAlert
           ? "gap-1 flex item-center justify-space active"
-          : alertType === "danger"
-          ? "gap-1 flex item-center danger justify-space"
           : "gap-1 flex item-center justify-space"
       }
     >
       <div className="flex w-100 item-center gap-1">
-        {alertType === "danger" && <CgDanger className="fs-24" />}
-        <h5 className="flex">{alertText}</h5>
+        {alertType === "danger" && (
+          <CgDanger className="fs-24" color={"#bd162d"} />
+        )}
+        <h5 className={alertType === 'danger'? "flex active":"flex"}>{alertText}</h5>
       </div>
       <div className="flex-1">
         <div
@@ -49,7 +49,7 @@ const MessageContent = styled.div`
   z-index: 10000;
   left: 2%;
   border-radius: 2px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 500;
   color: var(--dark-1);
   transition: all 0.6s;
@@ -68,9 +68,15 @@ const MessageContent = styled.div`
     visibility: visible;
   }
   &.danger {
-    background-color: var(--red);
+    background-color: #bd162d;
     color: #fff;
     border-left: 4px solid var(--red);
+  }
+  h5 {
+    font-size:1.35rem;
+    &.active {
+      color:#bd162d;
+    }
   }
   @media (max-width: 780px) {
     min-width: 200px;
