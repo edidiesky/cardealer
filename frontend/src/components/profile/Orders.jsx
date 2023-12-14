@@ -137,8 +137,6 @@ const Table = styled.div`
         }
       }
     }
-
- 
   }
 
   .TableContainer {
@@ -147,11 +145,10 @@ const Table = styled.div`
     gap: 2rem;
     width: 100%;
     overflow-x: auto;
-    font-family: "Barlow", sans-serif;
 
     &::-webkit-scrollbar {
       width: 10px;
-      height: .4rem;
+      height: 0.4rem;
       background: #f8f8f8;
       border-radius: 10px;
     }
@@ -176,6 +173,7 @@ const Table = styled.div`
           background: var(--grey-3);
           text-align: start;
           transition: all 0.3s var(--transition-2);
+          font-family: "Barlow", sans-serif;
           &:hover {
             background: rgb(0 0 0 / 13%);
           }
@@ -209,7 +207,7 @@ const Table = styled.div`
             color: var(--dark-1);
             border-bottom: 1px solid var(--grey-2);
             .true {
-              color: e72d2d;
+              color: #e72d2d;
             }
             .cartProduct {
               width: 100%;

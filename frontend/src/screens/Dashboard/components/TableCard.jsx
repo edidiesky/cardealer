@@ -23,7 +23,7 @@ export default function TableCards({ x, type }) {
 
   // Handling Order Navigation
   const handleOrderNav = () => {
-    navigate(`/order/${x?._id}`);
+    navigate(`/car-dealership/${x?._id}/order`)
   };
 
   // edit product function
