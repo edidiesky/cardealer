@@ -99,14 +99,14 @@ export default function HeaderTop() {
               {userInfo?.isAdmin ? (
                 <div className="profileList">
                   <Link
-                
+                target="_blank" 
                     className="link"
                     to={"/car-dealership/profile"}
                   >
                     Profile
                   </Link>
                   <Link
-                
+                target="_blank" 
                     className="link"
                     to={"/car-dealership/dashboard/"}
                   >
@@ -118,7 +118,7 @@ export default function HeaderTop() {
                 </div>
               ) : (
                 <div className="profileList list1">
-                  <Link target="_blank" className="link" to={"profile"}>
+                  <Link target="_blank" className="link" to={"/car-dealership/profile"}>
                     Profile
                   </Link>
                   <div className="link logOut" onClick={handleLogOut}>
