@@ -11,7 +11,7 @@ import {
   Contact,
   Register,
   Login,
-  // ProtectRoute,
+  ProtectRoute,
   Profile,
   About,
   Blog,
@@ -48,13 +48,37 @@ export default function App() {
           <Route path={"car-dealership/inventory"} element={<ProductList />} />
           <Route path={"car-dealership/cart/:id"} element={<Cart />} />
           <Route path={"car-dealership/cart"} element={<Cart />} />
+          <Route path={"car-dealership/about"} element={<About />} />
+          <Route path={"car-dealership/contact"} element={<Contact />} />
+          <Route path={"car-dealership/latest-offers"} element={<Offer />} />
           <Route path={"car-dealership/auth/login"} element={<Login />} />
           <Route path={"car-dealership/auth/register"} element={<Register />} />
-          <Route path={"car-dealership/profile"} element={<Profile />} />
-          <Route path={":id/order"} element={<Order />} />
+          <Route
+            path={"car-dealership/profile"}
+            element={
+              <ProtectRoute>
+                <Profile />
+              </ProtectRoute>
+            }
+          />
+          <Route
+            path={":id/order"}
+            element={
+              <ProtectRoute>
+                <Order />
+              </ProtectRoute>
+            }
+          />
         </Route>
 
-        <Route path={"/car-dealership/dashboard"} element={<LayoutList />}>
+        <Route
+          path={"/car-dealership/dashboard"}
+          element={
+            <ProtectRoute>
+              <LayoutList />
+            </ProtectRoute>
+          }
+        >
           <Route exact path={"order"} element={<OrderList />} />
 
           <Route exact path={"customer"} element={<Customers />} />

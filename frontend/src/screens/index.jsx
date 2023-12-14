@@ -10,7 +10,7 @@ import Login from './Login';
 import Register from './Register'
 import Profile from './Profile'
 import Order from './Order'
-// import {ProtectRoute} from './ProtectRoute'
+import {ProtectRoute} from './ProtectRoute'
 // import {ProtectAdmin} from './ProtectAdmin'
 import About from './About'
 import Blog from './Blog'
@@ -30,7 +30,7 @@ export {
     // Checkout,
     Register,
     Login,
-    // ProtectRoute,
+    ProtectRoute,
     // ProtectAdmin,
     Profile,
     About,
