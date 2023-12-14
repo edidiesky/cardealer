@@ -100,7 +100,7 @@ export default function TableCards({ x, type }) {
           <div className="action">
             <Link
               className="details"
-              to={`/car-dealership/order-success?orderId=${x?._id}`}
+              to={`/car-dealership/${x?._id}/order`}
             >
               See Details
             </Link>

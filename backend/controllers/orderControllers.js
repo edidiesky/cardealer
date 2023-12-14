@@ -107,7 +107,7 @@ const CreateOrder = async (req, res) => {
     }),
     mode: "payment",
     payment_method_types: ["card"],
-    success_url: `${process.env.WEB_ORIGIN}/${order?._id}/order`,
+    success_url: `${process.env.WEB_ORIGIN}/car-dealership/${order?._id}/order`,
     cancel_url: `${process.env.WEB_ORIGIN}`,
   });
 

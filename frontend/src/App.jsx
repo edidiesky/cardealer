@@ -62,7 +62,7 @@ export default function App() {
             }
           />
           <Route
-            path={":id/order"}
+            path={"car-dealership/:id/order"}
             element={
               <ProtectRoute>
                 <Order />
