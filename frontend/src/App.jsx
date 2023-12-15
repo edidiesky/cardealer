@@ -32,7 +32,6 @@ import {
   CreateProductIndex,
   Statistics,
 } from "./screens/Dashboard/pages";
-import Billing from "./screens/Checkout";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function App() {
@@ -46,6 +45,10 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path={"car-dealership/cars/:id"} element={<Details />} />
           <Route path={"car-dealership/search"} element={<Search />} />
+          <Route
+            path={"car-dealership/workshop-services"}
+            element={<Blog />}
+          />
           <Route path={"car-dealership/inventory"} element={<ProductList />} />
           <Route path={"car-dealership/cart/:id"} element={<Cart />} />
           <Route path={"car-dealership/cart"} element={<Cart />} />

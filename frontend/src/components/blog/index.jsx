@@ -80,9 +80,9 @@ export default function BlogIndex() {
             <h3 className="fs-18 text-extra-bold text-dark">Leave A Comment</h3>
             <textarea className="textarea" placeholder="Send a message" />
             <div className="flex w-100 gap-1 item-center">
-              <input className="input family1" type="text" placeholder="Name (required)" />
-              <input className="input family1" type="text" placeholder="Email (required)" />
-              <input className="input family1" type="text" placeholder="Message" />
+              <input className="input family1 fs-16" type="text" placeholder="Name (required)" />
+              <input className="input family1 fs-16" type="text" placeholder="Email (required)" />
+              <input className="input family1 fs-16" type="text" placeholder="Message" />
             </div>
             <div className="w-100 py-2">
               <button className="btn red fs-16 py-2 px-2 text-white text-bold">
