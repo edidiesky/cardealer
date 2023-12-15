@@ -45,6 +45,7 @@ export default function App() {
         <Route path={"/"} element={<Layout />}>
           <Route index element={<Home />} />
           <Route path={"car-dealership/cars/:id"} element={<Details />} />
+          <Route path={"car-dealership/search"} element={<Search />} />
           <Route path={"car-dealership/inventory"} element={<ProductList />} />
           <Route path={"car-dealership/cart/:id"} element={<Cart />} />
           <Route path={"car-dealership/cart"} element={<Cart />} />
