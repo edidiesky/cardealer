@@ -116,10 +116,15 @@ const SidebarWrapper = styled.div`
           /* position: absolute; */
           background: rgb(232 239 249 / 77%);
           color: var(--blue-1);
-          /* width: 4px;
+          &:after {
+          position: absolute;
+          background:#A435F0;
+          width: 4px;
           height: 100%;
           left: 0;
-          top: 0; */
+          top: 0;
+          content:"";
+          }
         }
       }
     }
