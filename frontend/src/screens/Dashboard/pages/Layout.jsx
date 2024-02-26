@@ -12,7 +12,7 @@ const LayoutWrapper = styled.div`
     width: 100%;
     .OutletWrapper {
       overflow: auto;
-      height: calc(100vh - 7rem);
+      height: calc(100vh - 8rem);
       align-items: flex-start;
       border-right: 1px solid rgba(0, 0, 0, 0.1);
       width: auto;

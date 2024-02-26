@@ -75,7 +75,7 @@ export default function Products() {
           <h3 className="fs-24 text-dark">
             Product List
             <span
-              style={{ marginTop: "2rem" }}
+              style={{ marginTop: "1rem" }}
               className="fs-14 family1 block text-dark text-light"
             >
               Here is my list of your awesome car collections that are being

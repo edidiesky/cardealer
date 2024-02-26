@@ -170,7 +170,7 @@ width:100%;
       width: 100%;
 
       .wrapper {
-        padding:0 2rem;
+        padding:0 4rem;
       }
 
       .EditProductWrapperTopLeft {
@@ -190,7 +190,7 @@ width:100%;
 
     .editwrapper {
       background-color: #fff;
-      padding: 3rem 2rem;
+      padding: 3rem 5rem;
       width: 100%;
       place-items: start;
       border-radius: 6px;

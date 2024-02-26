@@ -11,7 +11,7 @@ const HeaderWrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 1000;
-  min-height: 70px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   gap: 1.2rem;
@@ -142,7 +142,7 @@ export default function Header({ text, subtext }) {
       <div className="headerContainer">
         <Link to={"/"}>
           <img
-            style={{ width: "8rem" }}
+            style={{ width: "9rem" }}
             className="imageIcon"
             src="/images/dealer1.png"
             alt="images"

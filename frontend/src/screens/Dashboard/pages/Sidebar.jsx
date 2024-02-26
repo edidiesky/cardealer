@@ -82,8 +82,8 @@ const SidebarWrapper = styled.div`
       }
       .nav-link {
         padding: 10px 30px;
-        font-size: 1.36rem;
-        min-height: 5rem;
+        font-size: 1.45rem;
+        min-height: 6rem;
         font-weight: 500;
         margin: 0 auto;
         width: 100%;
@@ -167,7 +167,7 @@ export default function Sidebar() {
           <div className="profile_image flex item-center justify-center text-white fs-30">
             E
           </div>
-          <h5 className="fs-16 family1 text-center text-dark text-bold">
+          <h5 className="fs-18 family1 text-center text-dark text-bold">
             Edidiong Essien
             <span className="fs-13 py-1 text-dark text-light block">
               My Dashboard
@@ -178,7 +178,7 @@ export default function Sidebar() {
           {sidebarData.map((x) => {
             return (
               <NavLink
-                className={"nav-link family1 fs-15"}
+                className={"nav-link family1 fs-18"}
                 activeClassName="active"
                 exact={true}
                 to={`/car-dealership/dashboard${x.path}`}

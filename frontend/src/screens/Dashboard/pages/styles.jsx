@@ -2,13 +2,16 @@ import styled from "styled-components";
 
 export const Table = styled.div`
   width: 100%;
-  padding: 2rem 1.6rem;
+  padding: 2rem 4rem;
   margin-top: 1rem;
   background: var(--white);
   border-radius: 3px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  @media (max-width: 680px) {
+    padding: 2rem 3rem;
+  }
 
   .TableTop {
     padding: 0.4rem 0;
@@ -128,7 +131,7 @@ export const Table = styled.div`
     .tableWrapper {
       border-collapse: collapse;
       width: 100%;
-      min-width:100%;
+      min-width: 100%;
       /* max-width: 1000px; */
 
       thead {
