@@ -17,19 +17,29 @@ export default function DescriptionTab({ tabIndex }) {
       <DescriptionTabContainer>
         <h2>Description</h2>
         <p>
-          Introducing the revolutionary {productDetails?.title} Car, a groundbreaking fusion of
-          cutting-edge technology and sustainable transportation. Designed to
-          redefine the concept of driving, the {productDetails?.title} Car offers an unparalleled
-          driving experience that combines exhilarating performance,
-          state-of-the-art features, and an unwavering commitment to
-          environmental responsibility. With its sleek and futuristic design,
-          the {productDetails?.title} Car captivates onlookers and commands attention on the road.
-          The aerodynamic contours and seamless curves not only enhance its
-          aesthetic appeal but also contribute to its exceptional efficiency.
-          Every aspect of the {productDetails?.title} Car's design, from the streamlined body to
-          the advanced materials used, is optimized for maximum performance and
-          energy efficiency.
+          Introducing the revolutionary {productDetails?.title} Car, a
+          groundbreaking fusion of cutting-edge technology and sustainable
+          transportation. Designed to redefine the concept of driving, the{" "}
+          {productDetails?.title} Car offers an unparalleled driving experience
+          that combines exhilarating performance, state-of-the-art features, and
+          an unwavering commitment to environmental responsibility. With its
+          sleek and futuristic design, the {productDetails?.title} Car
+          captivates onlookers and commands attention on the road. 
         </p>
+
+        <div className="flex column gap-1">
+          <p>Exterior Color: Black</p>
+          <p>Interior Color: Brown (Beige)</p>
+          <p>as Mileage: 15 MPG City | 25 MPG Highway | 19 MPG Combinedk</p>
+          <p>Engine: 363 hp 5.7L V8</p>
+          <p>Drivetrain: All Wheel Drive</p>
+          <p>Fuel Type: Electric</p>
+          <p>Stock ID: ABC4590099ZX</p>
+          <p>
+            Major Options: Leather Seats, Navigation System, Alloy Wheels,
+            Chrome Wheels, Bluetooth, Backup Camera, Remote Start
+          </p>
+        </div>
       </DescriptionTabContainer>
     </motion.div>
   );

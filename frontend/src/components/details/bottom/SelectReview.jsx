@@ -10,9 +10,12 @@ export default function SelectReview() {
     <SelectReviewContainer>
       <div className="selectReviewWrapper">
         <div
-          className={rating >= 1 ? "selectContent active" : "selectContent"}
+          className={
+            rating >= 1 ? "selectContent w-100 active" : "selectContent w-100"
+          }
           onClick={() => dispatch(getRating(1))}
         >
+          1
           <span className="selectSpan">
             {rating >= 1 ? (
               <>
@@ -20,16 +23,18 @@ export default function SelectReview() {
               </>
             ) : (
               <>
-                <BsStar />
+                <BsStarFill />
               </>
             )}
           </span>
-          1
         </div>
         <div
-          className={rating >= 2 ? "selectContent active" : "selectContent"}
+          className={
+            rating >= 2 ? "selectContent w-100 active" : "selectContent w-100"
+          }
           onClick={() => dispatch(getRating(2))}
         >
+          2
           <span className="selectSpan">
             {rating >= 2 ? (
               <>
@@ -38,17 +43,19 @@ export default function SelectReview() {
               </>
             ) : (
               <>
-                <BsStar />
-                <BsStar />
+                <BsStarFill />
+                <BsStarFill />
               </>
             )}
           </span>
-          2
         </div>
         <div
-          className={rating >= 3 ? "selectContent active" : "selectContent"}
+          className={
+            rating >= 3 ? "selectContent w-100 active" : "selectContent w-100"
+          }
           onClick={() => dispatch(getRating(3))}
         >
+          3
           <span className="selectSpan">
             {rating >= 3 ? (
               <>
@@ -58,18 +65,20 @@ export default function SelectReview() {
               </>
             ) : (
               <>
-                <BsStar />
-                <BsStar />
-                <BsStar />
+                <BsStarFill />
+                <BsStarFill />
+                <BsStarFill />
               </>
             )}
           </span>
-          3
         </div>
         <div
-          className={rating >= 4 ? "selectContent active" : "selectContent"}
+          className={
+            rating >= 4 ? "selectContent w-100 active" : "selectContent w-100"
+          }
           onClick={() => dispatch(getRating(4))}
         >
+          4
           <span className="selectSpan">
             {rating >= 4 ? (
               <>
@@ -80,19 +89,21 @@ export default function SelectReview() {
               </>
             ) : (
               <>
-                <BsStar />
-                <BsStar />
-                <BsStar />
-                <BsStar />
+                <BsStarFill />
+                <BsStarFill />
+                <BsStarFill />
+                <BsStarFill />
               </>
             )}
           </span>
-          4
         </div>
         <div
-          className={rating >= 5 ? "selectContent active" : "selectContent"}
+          className={
+            rating >= 5 ? "selectContent w-100 active" : "selectContent w-100"
+          }
           onClick={() => dispatch(getRating(5))}
         >
+          5
           <span className="selectSpan">
             {rating >= 5 ? (
               <>
@@ -104,15 +115,14 @@ export default function SelectReview() {
               </>
             ) : (
               <>
-                <BsStar />
-                <BsStar />
-                <BsStar />
-                <BsStar />
-                <BsStar />
+                <BsStarFill />
+                <BsStarFill />
+                <BsStarFill />
+                <BsStarFill />
+                <BsStarFill />
               </>
             )}
           </span>
-          5
         </div>
       </div>
     </SelectReviewContainer>
@@ -127,24 +137,26 @@ const SelectReviewContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
-    flex-wrap: wrap;
+    @media (max-width:780px) {
+      flex-wrap: wrap;
+    }
     .selectContent {
       padding: 1rem 1.5rem;
-      border: 1px solid var(--grey-2);
+      background: #f9f9f9;
       display: flex;
       align-items: center;
       font-size: 1.5rem;
+      justify-content: space-between;
       font-weight: 600;
       color: var(--dark-1);
       transition: all 0.2s;
       gap: 1rem;
       border-radius: 6px;
       &.active {
-        border: 1px solid #e1cf1b;
-        color: #e1cf1b;
+        background-color: #ececec;
         .selectSpan {
           svg {
-            color: #e1cf1b;
+            color: #999999;
           }
         }
       }
@@ -156,8 +168,8 @@ const SelectReviewContainer = styled.div`
         font-weight: 600;
 
         svg {
-          color: #e1cf1b;
-          font-size: 1.7rem;
+          color: #999999;
+          font-size: 1rem;
           transition: all 0.2s;
         }
       }

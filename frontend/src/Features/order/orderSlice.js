@@ -27,12 +27,7 @@ const initialState = {
   loadingdelivered: false,
   successdelivered: false,
   orderStats: null,
-  isStatLoading: false,
-  isStatError: false,
-  isStatSuccess: false,
   keys: "",
-  isloadingPayalKey:'',
-  isSuccessPayalKey:'',
   orderpage: 1,
   ordernoOfpage: 0,
   totalorder: 0,
@@ -104,22 +99,6 @@ const orderSlice = createSlice({
     },
     [handleStripeCheckout.rejected]: (state, action) => {
       state.isLoading = false;
-      state.showAlert = true;
-      state.isError = true;
-      state.alertText = action.payload;
-      state.alertType = "danger";
-    },
-
-    // get stripe Key
-    [handlePaypalKey.pending]: (state) => {
-      state.isloadingPayalKey = true;
-    },
-    [handlePaypalKey.fulfilled]: (state, action) => {
-      state.isloadingPayalKey = false;
-      state.keys = action.payload;
-    },
-    [handlePaypalKey.rejected]: (state, action) => {
-      state.isloadingPayalKey = false;
       state.showAlert = true;
       state.isError = true;
       state.alertText = action.payload;

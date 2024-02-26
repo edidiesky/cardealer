@@ -11,6 +11,7 @@ export default function Input({ id, onChange, errorMessage, ...props }) {
     <LabelContainer htmlFor={id} className="family1">
       {id}
       <input
+      className='input'
         {...props}
         onBlur={handleTouch}
         onFocus={() => (props.name === "password2" ? setTouched(true) : "")}
@@ -33,15 +34,6 @@ const LabelContainer = styled.label`
   text-transform: capitalize;
 
   input {
-    height: 5.5rem;
-    background: var(--white);
-    padding: 0 2rem;
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    outline: none;
-    font-size: 1.4rem;
-    font-weight: 400;
-    /* font-family: "Barlow", sans-serif; */
 
     &::placeholder {
       font-size: 1.4rem;

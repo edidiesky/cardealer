@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import DescriptionTab from "./DescriptionTab";
 import Form from "./Form";
 import InfoTab from "./InfoTab";
+import AdditionalInformationTab from "./AdditionalInformationTab";
 import ReviewTab from "./ReviewTab";
 import { Links } from "../../checkout";
 export default function DetailsBottomindex() {
@@ -17,12 +18,17 @@ export default function DetailsBottomindex() {
             type={"Details"}
             step1={"Description"}
             step2={"Reviews"}
+            step3={"Additional Information"}
             index={tabIndex}
             setIndex={setTabIndex}
           />
         </div>
         <DescriptionTab tabIndex={tabIndex} setTabIndex={setTabIndex} />
         <ReviewTab tabIndex={tabIndex} setTabIndex={setTabIndex} />
+        <AdditionalInformationTab
+          tabIndex={tabIndex}
+          setTabIndex={setTabIndex}
+        />
       </div>
     </DetailsBottomContainer>
   );
@@ -30,12 +36,17 @@ export default function DetailsBottomindex() {
 
 const DetailsBottomContainer = styled.div`
   width: 100%;
-  padding: 3rem 0;
+  padding: 12rem 0;
   background: rgb(0 0 0 / 7%);
   .detailsBottomWrapper {
-    max-width: 1600px;
+    max-width: 1200px;
+    width: 1000px;
     position: relative;
     height: 100%;
+
+    @media (max-width: 1080px) {
+      width: 95%;
+    }
     @media (max-width: 680px) {
       width: 95%;
     }

@@ -131,7 +131,7 @@ button {
 .input {
   border: none;
   outline: none;
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Barlow", sans-serif;
   background-color: transparent;
 }
 .text-green {
@@ -478,14 +478,14 @@ h1 {
 }
 
 .input {
-  height: 5.5rem;
+  min-height: 6.5rem;
   border-radius: 6px;
   background: #fff;
-  padding: 0 2.4rem;
+  padding: 1rem 2.4rem;
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   outline: none;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 400;
   transition: all 0.2s;
   font-family: inherit;

@@ -34,7 +34,7 @@ export default function Links({
         <div
           onClick={() => setIndex(2)}
           className={
-            index === 3 ? "nav-link family1 active" : "nav-link family1"
+            index === 2 ? "nav-link family1 active" : "nav-link family1"
           }
         >
           {step3}
@@ -65,7 +65,6 @@ export default function Links({
 const LinkContainer = styled.div`
   width: 100%;
   display: flex;
-  gap: 1rem;
   align-items: center;
   background-color: transparent;
 
@@ -92,7 +91,7 @@ const LinkContainer = styled.div`
     }
     @media (max-width: 780px) {
       border-bottom: none;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       flex: 1;
       text-align: center;
       padding: 1rem 0;
@@ -100,6 +99,11 @@ const LinkContainer = styled.div`
     &.active {
       color: var(--red);
       background-color: #fff;
+    }
+
+    &:hover {
+      color: var(--red);
+      background-color: #ffffff72;
     }
   }
 `;
