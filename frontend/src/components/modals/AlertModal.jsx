@@ -49,6 +49,8 @@ const MessageContent = styled.div`
   transition: all 0.6s;
   /* transform: translate3d(0, -100px, 0); */
   top: -100px;
+  font-family: "Barlow", sans-serif;
+
   &.active {
     top: 20px;
   }

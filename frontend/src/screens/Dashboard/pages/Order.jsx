@@ -19,7 +19,7 @@ export default function Order() {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     dispatch(getAllCustomersOrder());
-  }, [orderpage]);
+  }, []);
 
   return (
     <>
@@ -31,7 +31,7 @@ export default function Order() {
           <h3 className="fs-24 text-dark">
             Order List
             <span
-              style={{ marginTop: "2rem" }}
+              style={{ marginTop: "1rem" }}
               className="fs-14 family1 block text-dark text-light"
             >
               Here is my list of customers orders who have purchased my awesome

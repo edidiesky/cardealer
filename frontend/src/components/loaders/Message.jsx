@@ -46,6 +46,8 @@ const MessageContent = styled.div`
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12) !important;
   background-color: #fff;
   position: fixed;
+  font-family: "Barlow", sans-serif;
+
   z-index: 10000;
   left: 2%;
   border-radius: 2px;
@@ -73,9 +75,9 @@ const MessageContent = styled.div`
     border-left: 4px solid var(--red);
   }
   h5 {
-    font-size:1.35rem;
+    font-size: 1.35rem;
     &.active {
-      color:#bd162d;
+      color: #bd162d;
     }
   }
   @media (max-width: 780px) {

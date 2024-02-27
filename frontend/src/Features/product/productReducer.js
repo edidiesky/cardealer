@@ -23,17 +23,17 @@ export const getAllProduct = createAsyncThunk(
           "content-type": "application/json",
         },
       };
-      // if (page) {
-      //   productUrl = productUrl + `?page=${page}`
-      // }
+      if (page) {
+        productUrl = productUrl + `?page=${page}`
+      }
       if (category || tag) {
         productUrl = productUrl + `?category=${category}&tag=${tag}`;
         const { data } = await axios.get(productUrl, config);
         return data;
       }
-      // if (sort) {
-      //   productUrl = productUrl + `?sort=${sort}`
-      // }
+      if (sort) {
+        productUrl = productUrl + `?sort=${sort}`
+      }
       if (colors) {
         productUrl = productUrl + `?colors=${colors}`;
         const { data } = await axios.get(productUrl, config);
@@ -49,9 +49,9 @@ export const getAllProduct = createAsyncThunk(
         const { data } = await axios.get(productUrl, config);
         return data;
       }
-      // if (limit) {
-      //   productUrl = productUrl + `?limit=${limit}`
-      // }
+      if (limit) {
+        productUrl = productUrl + `?limit=${limit}`
+      }
       // if (search) {
       //   productUrl = productUrl + `&search=${search}`
       // }

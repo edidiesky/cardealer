@@ -4,27 +4,27 @@ import axios from "axios";
 export const createCustomersOrder = createAsyncThunk(
   "/create/order",
   async (orderData, thunkAPI) => {
-   const state = thunkAPI.getState();
-   try {
-     const config = {
-       headers: {
-         authorization: `Bearer ${state.user.token}`,
-       },
-     };
-     const { data } = await axios.post(
-       `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order`,
-       orderData,
-       config
-     );
+    const state = thunkAPI.getState();
+    try {
+      const config = {
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order`,
+        orderData,
+        config
+      );
 
-     return data;
-   } catch (error) {
-     return thunkAPI.rejectWithValue(
-       error.response && error.response.data.message
-         ? error.response.data.message
-         : error.message
-     );
-   }
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
   }
 );
 
@@ -88,12 +88,14 @@ export const getCustomerOrderById = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const config = {
-       headers: {
-         authorization: `Bearer ${state.user.token}`,
-         "content-type": "application/json",
-       },
-     };
-      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${orderId}`);
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+          "content-type": "application/json",
+        },
+      };
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${orderId}`
+      );
 
       return data.order;
     } catch (error) {
@@ -112,12 +114,14 @@ export const getCustomerOrderStats = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const config = {
-       headers: {
-         authorization: `Bearer ${state.user.token}`,
-         "content-type": "application/json",
-       },
-     };
-      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/stats`);
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+          "content-type": "application/json",
+        },
+      };
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/stats`
+      );
 
       return data.totalOrder;
     } catch (error) {
@@ -136,11 +140,11 @@ export const getCustomerOrder = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const config = {
-       headers: {
-         authorization: `Bearer ${state.user.token}`,
-         "content-type": "application/json",
-       },
-     };
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+          "content-type": "application/json",
+        },
+      };
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/customer/order`,
         config
@@ -161,13 +165,15 @@ export const getAllCustomersOrder = createAsyncThunk(
   "/get/allorder",
   async (id, thunkAPI) => {
     const state = thunkAPI.getState();
+    const { page, limit } = state.order;
+    let orderUrl = `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order`
     try {
-       const config = {
-         headers: {
-           authorization: `Bearer ${state.user.token}`,
-           "content-type": "application/json",
-         },
-       };
+      const config = {
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+          "content-type": "application/json",
+        },
+      };
       const { orderpage } = state.order;
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order?page=${orderpage}`,
@@ -188,28 +194,28 @@ export const getAllCustomersOrder = createAsyncThunk(
 export const updateCustomersOrderToPaid = createAsyncThunk(
   "/update/order",
   async (details, thunkAPI) => {
-     const state = thunkAPI.getState();
-     try {
-       const config = {
-         headers: {
-           authorization: `Bearer ${state.user.token}`,
-         },
-       };
+    const state = thunkAPI.getState();
+    try {
+      const config = {
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
       //  const { _id } = state.order.order;
-       const { data } = await axios.put(
-         `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${details}/pay`,
-         details,
-         config
-       );
+      const { data } = await axios.put(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${details}/pay`,
+        details,
+        config
+      );
 
-       return data.updatedOrder;
-     } catch (error) {
-       return thunkAPI.rejectWithValue(
-         error.response && error.response.data.message
-           ? error.response.data.message
-           : error.message
-       );
-     }
+      return data.updatedOrder;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
   }
 );
 
@@ -219,7 +225,10 @@ export const updateCustomersOrderToIsDelivered = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       const { _id } = state.order.order;
-      const { data } = await axios.put(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${_id}/delivered`, name);
+      const { data } = await axios.put(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/order/${_id}/delivered`,
+        name
+      );
 
       return data.updatedOrder;
     } catch (error) {

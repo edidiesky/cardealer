@@ -23,7 +23,7 @@ const initialState = {
   alertType: "",
   loadingPay: false,
   successPay: false,
-  url:'',
+  url: "",
   loadingdelivered: false,
   successdelivered: false,
   orderStats: null,
@@ -31,6 +31,8 @@ const initialState = {
   orderpage: 1,
   ordernoOfpage: 0,
   totalorder: 0,
+  sort: 0,
+  limit: 0,
 };
 
 const orderSlice = createSlice({

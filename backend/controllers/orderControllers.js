@@ -13,21 +13,23 @@ import asyncHandler from "express-async-handler";
 const GetAllOrder = async (req, res) => {
   // instantiate the Order variable
 
-  const limit = req.query.limit || 6;
-  const page = req.query.page || 1;
+  const limit = req.query.limit;
+  const page = req.query.page;
   const skip = (page - 1) * limit;
-  const totalOrder = await Order.countDocuments({});
 
-  const order = await Order.find({})
-    .populate("createdBy", "firstname lastname email address")
-    .skip(skip)
-    .limit(limit);
+  console.log(skip, page, limit)
+//   const totalOrder = await Order.countDocuments({});
 
-  const noOfPages = Math.ceil(totalOrder / limit);
+//   const order = await Order.find({})
+//     .populate("createdBy", "firstname lastname email address")
+//     .skip(skip)
+//     .limit(limit);
 
-  res.setHeader("Content-Type", "text/html");
-res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
-  res.status(200).json({ order, noOfPages, totalOrder });
+//   const noOfPages = Math.ceil(totalOrder / limit);
+
+//   res.setHeader("Content-Type", "text/html");
+// res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+//   res.status(200).json({ order, noOfPages, totalOrder });
 };
 
 // GET All Order
