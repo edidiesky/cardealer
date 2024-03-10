@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { RxCross1 } from "react-icons/rx";
+import { AiFillCheckCircle } from "react-icons/ai";
 import { CgDanger } from "react-icons/cg";
 export default function Message({
   showAlert,
@@ -16,16 +17,29 @@ export default function Message({
     <MessageContent
       className={
         showAlert
-          ? "gap-1 family1 flex item-center justify-space active"
-          : alertType === "danger"
-          ? "gap-1 family1 flex item-center danger justify-space"
-          : "gap-1 family1 flex item-center justify-space"
+          ? "gap-1 flex item-center justify-space active"
+          : "gap-1 flex item-center justify-space"
       }
     >
-      {alertType === "danger" && <CgDanger className="fs-24" />}
-      <h4 className="flex ">{alertText}</h4>
-      <div className="">
-        <div className="icon" onClick={() => dispatch(handleClearAlert())}>
+      <div className="flex w-100 item-center gap-1">
+        {alertType === "danger" ? (
+          <CgDanger className="fs-24" color={"#bd162d"} />
+        ) : (
+          <AiFillCheckCircle fontSize={"24px"} color="green" />
+        )}
+        <h5
+          className={
+            alertType === "danger" ? "flex fs-14 active" : "flex fs-14"
+          }
+        >
+          {alertText}
+        </h5>
+      </div>
+      <div className="flex-1">
+        <div
+          className="icon1 flex item-center justify-center"
+          onClick={() => dispatch(handleClearAlert())}
+        >
           <RxCross1 />
         </div>
       </div>
@@ -34,23 +48,31 @@ export default function Message({
 }
 
 const MessageContent = styled.div`
-  min-width: 350px;
-  padding: 1.2rem 2rem;
-  background-color: #f7f7f7;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
+  min-width: 200px;
+  padding: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  position: fixed;
+  z-index: 1555000;
+  left: 2%;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--dark-1);
   transition: all 0.6s;
-  transform: translate3d(0, -1000px, 0);
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -1000%);
   opacity: 0;
   visibility: hidden;
-  position: relative;
-  display: none;
+
+  top: -5%;
+
   &.active {
-    transform: translate3d(0, 0px, 0);
-    visibility: visible;
+    top: 5%;
+    transform: translateX(-50%);
     opacity: 1;
-    display: flex;
+    visibility: visible;
   }
   &.danger {
     background-color: var(--red);
@@ -58,15 +80,25 @@ const MessageContent = styled.div`
     border-left: 4px solid var(--red);
   }
   @media (max-width: 780px) {
-    min-width: 300px;
+    min-width: 200px;
     justify-content: flex-start;
+  }
+  @media (max-width: 480px) {
+    min-width: 200px;
+    justify-content: flex-start;
+    padding: 1rem 2rem;
   }
   .flex1 {
     flex: 1;
   }
+  h5 {
+    &.active {
+      color: #bd162d;
+    }
+  }
   .icon {
-    width: 2.4rem !important;
-    height: 2.4rem !important;
+    width: 1.6rem;
+    height: 1.6rem;
     display: grid;
     place-items: center;
     border-radius: 50%;
@@ -81,7 +113,7 @@ const MessageContent = styled.div`
     svg {
       width: 50%;
       height: 50%;
-      color: var(--grey-2);
+      color: var(--dark-1);
     }
   }
 `;

@@ -39,20 +39,16 @@ export default function Message({
 }
 
 const MessageContent = styled.div`
-  min-width: 300px;
-  padding: 1rem 1.6rem;
-  min-height: 6rem;
-  box-shadow: var(--shadow);
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12) !important;
+  min-width: 200px;
+  padding: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   background-color: #fff;
   position: fixed;
-  font-family: "Barlow", sans-serif;
-
-  z-index: 10000;
+  z-index: 1555000;
   left: 2%;
-  border-radius: 2px;
+  border-radius: 12px;
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--dark-1);
   transition: all 0.6s;
   top: 2%;
@@ -70,20 +66,13 @@ const MessageContent = styled.div`
     visibility: visible;
   }
   &.danger {
-    background-color: #bd162d;
+    background-color: var(--red);
     color: #fff;
     border-left: 4px solid var(--red);
-  }
-  h5 {
-    font-size: 1.35rem;
-    &.active {
-      color: #bd162d;
-    }
   }
   @media (max-width: 780px) {
     min-width: 200px;
     justify-content: flex-start;
-    font-size: 1.3rem;
   }
   @media (max-width: 480px) {
     min-width: 200px;
@@ -92,6 +81,11 @@ const MessageContent = styled.div`
   }
   .flex1 {
     flex: 1;
+  }
+  h5 {
+    &.active {
+      color: #bd162d;
+    }
   }
   .icon {
     width: 1.6rem;

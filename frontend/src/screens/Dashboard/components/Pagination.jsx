@@ -57,7 +57,9 @@ export default function Pagination({ type }) {
 
 	const { userpage, totalUser, usernoOfpage } = useSelector(store => store.user)
 
-	const { orderpage, totalorder } = useSelector(store => store.order)
+	const { orderpage, totalorder, ordernoOfpage } = useSelector(
+    (store) => store.order
+  );
 
 
 	// product pagination
@@ -102,17 +104,17 @@ export default function Pagination({ type }) {
 
 	// order pagination
 	const decreaseorderPageNumber = (index)=> {
-		if (orderpage <=  totalorder) {
+		if (ordernoOfpage <=  totalorder) {
 			dispatch(getOrderPage(totalorder))
 		} else {
-			dispatch(getOrderPage(orderpage - 1))
+			dispatch(getOrderPage(ordernoOfpage - 1))
 		}
 	}
 	const increaseorderPageNumber = (index)=> {
-		if (orderpage >  totalorder) {
+		if (ordernoOfpage >  totalorder) {
 			dispatch(getOrderPage(1))
 		} else {
-			dispatch(getOrderPage(orderpage + 1))
+			dispatch(getOrderPage(ordernoOfpage + 1))
 		}
 	}
 	const handleorderPage = (index)=> {
@@ -144,22 +146,30 @@ export default function Pagination({ type }) {
 
 	if (type === 'order') {
 		return (
-			<PaginationContainer>
-				<div className='PaginationWrapper'>
-					<button onClick={() => decreaseorderPageNumber(orderpage)}><BiChevronLeft /></button>
-					<div className='btnWrapper'>
-						{[...Array(totalorder).keys()].slice(0, 3).map((x, index) => {
-							return <button
-								key={index + 1}
-								className={orderpage === index + 1 ? 'active' : ""}
-								onClick={() => handleorderPage(index + 1)}
-							>{x + 1}</button>
-						})}
-					</div>
-					<button onClick={() => increaseorderPageNumber(orderpage)}><BiChevronRight /></button>
-				</div>
-			</PaginationContainer>
-		)
+      <PaginationContainer>
+        <div className="PaginationWrapper">
+          <button onClick={() => decreaseorderPageNumber(orderpage)}>
+            <BiChevronLeft />
+          </button>
+          <div className="btnWrapper">
+            {[...Array(ordernoOfpage).keys()].slice(0, 3).map((x, index) => {
+              return (
+                <button
+                  key={index + 1}
+                  className={orderpage === index + 1 ? "active" : ""}
+                  onClick={() => handleorderPage(index + 1)}
+                >
+                  {x + 1}
+                </button>
+              );
+            })}
+          </div>
+          <button onClick={() => increaseorderPageNumber(orderpage)}>
+            <BiChevronRight />
+          </button>
+        </div>
+      </PaginationContainer>
+    );
 	}
 
 	return (

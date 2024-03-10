@@ -146,7 +146,7 @@ const orderSlice = createSlice({
     [getAllCustomersOrder.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.orders = action.payload.order;
-      state.orderpage = action.payload.noOfPages;
+      state.ordernoOfpage = action.payload.noOfPages;
       state.totalorder = action.payload.totalOrder;
     },
     [getAllCustomersOrder.rejected]: (state, action) => {
