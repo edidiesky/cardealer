@@ -44,10 +44,11 @@ export default function Statistics() {
       <Message />
       <StatisticsWrapper>
         <Widget />
-        <div className="chartWrapper">
+        {/* <div className="chartWrapper">
           <Chart title="Analytics" />
           <Visuals />
-        </div>
+        </div> */}
+        <Visuals />
         {/* <Orders /> */}
       </StatisticsWrapper>
     </>

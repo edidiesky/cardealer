@@ -24,16 +24,16 @@ const HeaderWrapper = styled.div`
     background-color: rgba(0, 0, 0, 0.08);
   }
   form {
-    padding: 1.2rem 3rem;
     display: flex;
     align-items: center;
     gap: 2rem;
+    padding: 0 3rem;
     height: 4.5rem;
-    width: 500px;
+    width: 450px;
 
     background: var(--grey-3);
     @media (max-width: 780px) {
-      width: 80%;
+      width: 70%;
     }
 
     svg {
@@ -43,11 +43,12 @@ const HeaderWrapper = styled.div`
     }
 
     input {
-      flex: 1;
+      /* flex: 1; */
       border: none;
       background: inherit;
       font-size: 1.5rem;
       outline: none;
+      padding: 1.2rem 1rem;
       height: 100%;
       border: none;
       font-family: "Barlow", sans-serif !important;
@@ -64,7 +65,7 @@ const HeaderWrapper = styled.div`
   }
   h5 {
     @media (max-width: 580px) {
-      display:none;
+      display: none;
     }
   }
   .headerContainer {

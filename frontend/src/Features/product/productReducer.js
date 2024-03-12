@@ -4,12 +4,11 @@ import axios from "axios";
 // fetching all product
 export const getAllProduct = createAsyncThunk(
   "/fetch/allproduct",
-  async (name, thunkAPI) => {
+  async (product, thunkAPI) => {
     try {
       const {
         page,
         category,
-        search,
         sort,
         colors,
         limit,
@@ -24,7 +23,7 @@ export const getAllProduct = createAsyncThunk(
         },
       };
       if (page) {
-        productUrl = productUrl + `?page=${page}`
+        productUrl = productUrl + `?page=${page}`;
       }
       if (category || tag) {
         productUrl = productUrl + `?category=${category}&tag=${tag}`;
@@ -32,7 +31,7 @@ export const getAllProduct = createAsyncThunk(
         return data;
       }
       if (sort) {
-        productUrl = productUrl + `?sort=${sort}`
+        productUrl = productUrl + `?sort=${sort}`;
       }
       if (colors) {
         productUrl = productUrl + `?colors=${colors}`;
@@ -50,11 +49,11 @@ export const getAllProduct = createAsyncThunk(
         return data;
       }
       if (limit) {
-        productUrl = productUrl + `?limit=${limit}`
+        productUrl = productUrl + `?limit=${limit}`;
       }
-      // if (search) {
-      //   productUrl = productUrl + `&search=${search}`
-      // }
+      if (product.search !== '') {
+        productUrl = productUrl + `&search=${product.search}`;
+      }
       const { data } = await axios.get(productUrl, config);
       return data;
     } catch (error) {

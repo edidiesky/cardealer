@@ -17,30 +17,34 @@ export default function EditProductImage({
   setColors,
   filterColors,
 }) {
-  const handleFileUpload = async (e) => {
-    // get the file
-    const file = e.target.files;
-    setUploading(true);
-    // create formdata
-    const formData = new FormData();
-    for (let i = 0; i < file.length; i++) {
-      formData.append("images", file[i]);
-    }
+ const handleFileUpload = async (e) => {
+   // get the file
+   const file = e.target.files;
+   setUploading(true);
+   // create formdata
+   const formData = new FormData();
+   for (let i = 0; i < file.length; i++) {
+     formData.append("files", file[i]);
+   }
 
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      };
-      const { data } = await axios.post("/api/v1/upload", formData, config);
+   try {
+     const config = {
+       headers: {
+         "Content-Type": "multipart/form-data",
+       },
+     };
+     const { data } = await axios.post(
+       `${import.meta.env.VITE_API_BASE_URLS}/api/v1/upload`,
+       formData,
+       config
+     );
 
-      setUploadImage(data.files);
-      setUploading(false);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+     setUploadImage(data.urls);
+     setUploading(false);
+   } catch (err) {
+     console.log(err);
+   }
+ };
 
   const [coloractive, setColorActive] = useState(false);
 

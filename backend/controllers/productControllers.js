@@ -13,7 +13,7 @@ const GetAllProduct = asyncHandler(async (req, res) => {
   const category = req.query.category;
   const tag = req.query.tag;
 
-  const minprice = req.query.minprice;
+  const minprice = req.query.minprice; 
   const maxprice = req.query.maxprice;
   const queryObject = {};
   let result = Product.find(queryObject);
@@ -58,7 +58,7 @@ const GetAllProduct = asyncHandler(async (req, res) => {
 
   const totalProduct = await Product.countDocuments({});
 
-  const product = await result.find(queryObject).skip(skip).limit(limit);
+  const product = await result.find(queryObject).skip(skip).limit(limit).sort("-createdAt");
 
   const noOfPages = Math.ceil(totalProduct / limit);
 

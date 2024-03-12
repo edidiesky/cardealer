@@ -23,7 +23,7 @@ export default function EditProductImage({
     // create formdata
     const formData = new FormData();
     for (let i = 0; i < file.length; i++) {
-      formData.append("images", file[i]);
+      formData.append("files", file[i]);
     }
 
     try {
@@ -32,9 +32,13 @@ export default function EditProductImage({
           "Content-Type": "multipart/form-data",
         },
       };
-      const { data } = await axios.post("/api/v1/upload", formData, config);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/upload`,
+        formData,
+        config
+      );
 
-      setUploadImage(data.files);
+      setUploadImage(data.urls);
       setUploading(false);
     } catch (err) {
       console.log(err);

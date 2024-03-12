@@ -8,7 +8,7 @@ import { MdDashboard, MdAddBusiness } from "react-icons/md";
 import { BsCollection } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { offSidebar } from "../../../Features";
-export const sidebarData = [
+const sidebarData = [
   {
     id: 1,
     icon1: <MdDashboard />,
@@ -18,12 +18,12 @@ export const sidebarData = [
   {
     id: 3,
     icon1: <MdAddBusiness />,
-    title: "Add Products",
-    path: "create-product",
+    title: "Manage Products",
+    path: "/Product",
   },
-  { id: 4, icon1: <BsCollection />, title: "Orders", path: "order" },
-  { id: 5, icon1: <HiUsers />, title: "Customers", path: "customer" },
-  { id: 6, icon1: <CgProfile />, title: "Profile", path: "profile" },
+  { id: 4, icon1: <BsCollection />, title: "Manage Orders", path: "/order" },
+  { id: 5, icon1: <HiUsers />, title: "Manage Customers", path: "/customer" },
+  { id: 6, icon1: <CgProfile />, title: "Manage Profile", path: "/profile" },
 ];
 export default function SmallSidebar() {
   const dispatch = useDispatch();
@@ -40,10 +40,10 @@ export default function SmallSidebar() {
           {sidebarData.map((x) => {
             return (
               <NavLink
-                to={`${x.path}`}
-                className={({ isActive }) =>
-                  isActive ? "nav-link family1 active" : "nav-link family1"
-                }
+                exact={true}
+                to={`/car-dealership/dashboard${x.path}`}
+                className={"nav-link family1 fs-18"}
+                activeClassName="active"
                 key={x.id}
                 onClick={() => dispatch(offSidebar())}
               >
@@ -56,7 +56,6 @@ export default function SmallSidebar() {
     </SmallSidebarContent>
   );
 }
-
 
 const SmallSidebarContent = styled.div`
   position: fixed;

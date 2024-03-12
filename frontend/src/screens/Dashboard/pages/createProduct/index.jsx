@@ -95,7 +95,7 @@ export default function CreateProductIndex() {
         <div className="EditProductWrapper">
           <div className="profile_top w-100">
             <h3 className="fs-24 text-dark">
-              Edit Your Car Collection
+              Create Your Car Collection
               <span
                 style={{ marginTop: "2rem" }}
                 className="fs-14 family1 block text-dark text-light"

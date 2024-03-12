@@ -17,7 +17,7 @@ import LoaderIndex from "../../../components/loaders/index";
 
 export default function Products() {
   const dispatch = useDispatch();
-
+  const [search, setSearch] = useState("");
   const {
     noOfPages,
     page,
@@ -33,8 +33,8 @@ export default function Products() {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     dispatch(clearProductDetails());
-    dispatch(getAllProduct());
-  }, [page, dispatch]);
+    dispatch(getAllProduct({ search }));
+  }, [page, dispatch, search]);
 
   // clear the product alert
   useEffect(() => {
@@ -46,14 +46,14 @@ export default function Products() {
   }, [showAlert, dispatch]);
 
   // Search functionality
-  const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    dispatch(handleProductSearch(search));
-    if (!search) {
-      dispatch(getAllProduct());
-    }
-  }, [search, dispatch]);
+
+  // useEffect(() => {
+  //   // dispatch(handleProductSearch(search));
+  //   if (search) {
+  //     dispatch(getAllProduct({ search }));
+  //   }
+  // }, [search, dispatch]);
 
   // console.log(product);
 
@@ -103,7 +103,10 @@ export default function Products() {
                     onChange={(e) => setSearch(e.target.value)}
                   />
                 </form>
-                <Link to={"create-product"} className="editBtn">
+                <Link
+                  to={"/car-dealership/dashboard/create-product"}
+                  className="editBtn"
+                >
                   Add Product
                 </Link>
               </div>

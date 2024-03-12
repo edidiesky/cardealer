@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import styled from "styled-components";
 import Chart from "react-apexcharts";
 import { getCustomerOrderStats } from "../../../Features";
@@ -51,7 +51,7 @@ export default function Visuals() {
     },
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (dates || counts) {
       setData({
         series: [{ data: counts, name: "Cars" }],
@@ -70,7 +70,7 @@ export default function Visuals() {
           dataLabels: {
             enabled: false,
           },
-          colors: ["#d76f2d"],
+          colors: ["#3693FF"],
           stroke: {
             curve: "straight",
           },
