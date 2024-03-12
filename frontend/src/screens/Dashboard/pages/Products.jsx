@@ -103,7 +103,7 @@ export default function Products() {
                     onChange={(e) => setSearch(e.target.value)}
                   />
                 </form>
-                <Link to={"16263"} className="editBtn">
+                <Link to={"create-product"} className="editBtn">
                   Add Product
                 </Link>
               </div>

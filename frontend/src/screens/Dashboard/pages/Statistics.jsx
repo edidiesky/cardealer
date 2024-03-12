@@ -42,10 +42,6 @@ export default function Statistics() {
   return (
     <>
       <Message />
-      <Header
-        subtext={"Here is what is happening with your store today"}
-        text={`Edidiong Essien`}
-      />
       <StatisticsWrapper>
         <Widget />
         <div className="chartWrapper">

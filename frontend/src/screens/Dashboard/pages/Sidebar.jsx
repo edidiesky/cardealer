@@ -141,12 +141,12 @@ export const sidebarData = [
   {
     id: 3,
     icon1: <MdAddBusiness />,
-    title: "Add Products",
-    path: "/create-product",
+    title: "Manage Products",
+    path: "/Product",
   },
-  { id: 4, icon1: <BsCollection />, title: "Orders", path: "/order" },
-  { id: 5, icon1: <HiUsers />, title: "Customers", path: "/customer" },
-  { id: 6, icon1: <CgProfile />, title: "Profile", path: "/profile" },
+  { id: 4, icon1: <BsCollection />, title: "Manage Orders", path: "/order" },
+  { id: 5, icon1: <HiUsers />, title: "Manage Customers", path: "/customer" },
+  { id: 6, icon1: <CgProfile />, title: "Manage Profile", path: "/profile" },
 ];
 
 export const sidebarData2 = [

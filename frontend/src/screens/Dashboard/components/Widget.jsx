@@ -1,5 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
+import { RiLuggageDepositLine } from "react-icons/ri";
+import { AiOutlineMail } from "react-icons/ai";
+import { FaCoins } from "react-icons/fa";
+import { HiOutlineMailOpen } from "react-icons/hi";
+import { SlSupport } from "react-icons/sl";
+import { FaHouse, FaGift } from "react-icons/fa6";
+import { IoBriefcase } from "react-icons/io5";
+
 import { FaEye, FaMoneyCheck } from "react-icons/fa";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { BiStats } from "react-icons/bi";
@@ -14,8 +23,8 @@ export default function Widget() {
       id: 1,
       title: "Total Sales",
       qty: "$100,357",
-      icon: <RiMoneyDollarCircleLine />,
-      back: "#ff3333",
+      icon: <RiLuggageDepositLine />,
+      back: "#3693FF",
       percent: "2.6",
     },
     {
@@ -23,7 +32,7 @@ export default function Widget() {
       title: "Visitors",
       qty: `${totalUser}`,
       icon: <FaEye />,
-      back: "#50fc61",
+      back: "#5B5E81  ",
       percent: "-0.06",
     },
     {
@@ -31,7 +40,7 @@ export default function Widget() {
       title: "Total Product",
       qty: `${totalProduct}`,
       icon: <BiStats />,
-      back: "#1457ed",
+      back: "#AC4CBC",
       percent: "+1.06",
     },
   ];
@@ -40,12 +49,25 @@ export default function Widget() {
     <WidgetWrapper>
       {WidgetData.map((x, index) => {
         return (
+          // <div
+          //   className={widgettab === x.id ? "widgetCard shadow active" : "widgetCard shadow"}
+          //   key={x.id}
+          //   onClick={() => setWidgetTab(x.id)}
+          // >
+          //   <div className="Icons">{x.icon}</div>
+          // <h2>
+          //   <span className="span1">{x.title}</span>
+          //   {x.qty}
+          // </h2>
+          // </div>
+
           <div
-            className={widgettab === x.id ? "widgetCard active" : "widgetCard"}
-            key={x.id}
-            onClick={() => setWidgetTab(x.id)}
+            style={{ background: `${x?.back}` }}
+            className="widgetCard w-100 flex item-center gap-2"
           >
-            <div className="Icons">{x.icon}</div>
+            <span className="icon_widget flex item-center justify-center">
+              {x.icon}
+            </span>
             <h2>
               <span className="span1">{x.title}</span>
               {x.qty}
@@ -66,11 +88,15 @@ const WidgetWrapper = styled.div`
     grid-template-columns: 1fr;
   }
 
+  svg {
+    font-size: 2.4rem;
+    color: #fff;
+  }
   .widgetCard {
-    padding: 2rem 2.6rem;
+    padding: 4rem 2rem;
     background: var(--white);
+    box-shadow: var(--shadow);
     display: flex;
-    flex-direction: column;
     gap: 1.8rem;
     width: 100%;
     border-radius: 10px;
@@ -86,7 +112,7 @@ const WidgetWrapper = styled.div`
 
     h2 {
       font-size: 3.5rem;
-      color: var(--text-color);
+      color: #fff;
       font-weight: 600;
       text-transform: uppercase;
       .span1 {
@@ -105,21 +131,20 @@ const WidgetWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      background:#d76f2d;
+      background: #d76f2d;
       border-radius: 6px;
       svg {
-        width: 70%;
-        height: 70%;
+        font-size: 20px;
         color: #fff;
       }
     }
     &.active,
     &:hover {
-      background:#d76f2d;
+      background: #d76f2d;
       .Icons {
         background: #fff;
         svg {
-          color:#d76f2d;
+          color: #d76f2d;
         }
       }
 

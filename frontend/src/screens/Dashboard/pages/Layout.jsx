@@ -25,6 +25,9 @@ const LayoutWrapper = styled.div`
         position: sticky;
         overflow: auto;
         width: 280px;
+        @media (max-width: 580px) {
+         display: none;
+        }
       }
     }
   }

@@ -45,10 +45,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path={"car-dealership/cars/:id"} element={<Details />} />
           <Route path={"car-dealership/search"} element={<Search />} />
-          <Route
-            path={"car-dealership/workshop-services"}
-            element={<Blog />}
-          />
+          <Route path={"car-dealership/workshop-services"} element={<Blog />} />
           <Route path={"car-dealership/inventory"} element={<ProductList />} />
           <Route path={"car-dealership/cart/:id"} element={<Cart />} />
           <Route path={"car-dealership/cart"} element={<Cart />} />
@@ -96,7 +93,9 @@ export default function App() {
           <Route exact path={"customer/:id"} element={<EditUser />} />
 
           <Route exact path={"product/:id"} element={<EditProductIndex />} />
-          <Route exact index element={<AdminProductList />} />
+          <Route exact path={"product/"} element={<AdminProductList />} />
+          <Route exact index element={<Statistics />} />
+          {/* Statistics */}
         </Route>
       </Routes>
     </div>
