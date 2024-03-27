@@ -18,12 +18,12 @@ const MockRequest = {
     state: "Lagos",
     phone: "1456-93837-5883",
     email: "test1333@gmail.com",
-    password: "hashed_password",
+    password: "123456",
   },
 };
 
 describe("register User", () => {
-  it("should create a user", async() => {
+  it("should create a user", async () => {
     const mockUserResponse = {
       _id: "64d78b7beac30bd060eeab89",
       firstname: "Edidiong",
@@ -35,8 +35,22 @@ describe("register User", () => {
     jest.spyOn(bcrypt, "hash").mockResolvedValueOnce("hashed_password");
     jest.spyOn(User, "create").mockResolvedValueOnce(mockUserResponse);
 
-   await registerUser(MockRequest, MockResponse);
-   expect(MockResponse.status).toHaveBeenCalled()
-   expect(MockResponse.status).toHaveBeenCalledWith(300);
+    await registerUser(MockRequest, MockResponse);
+    expect(MockResponse.status).toHaveBeenCalled();
+    expect(MockResponse.status).toHaveBeenCalledWith(200);
+    expect(MockResponse.json).toHaveBeenCalledWith({
+      user: {
+        _id: "64d78b7beac30bd060eeab89",
+        firstname: "Edidiong",
+        lastname: "Essien",
+        phone: "1456-93837-5883",
+        email: "edidie@gmail.com",
+        country: undefined,
+        isAdmin: undefined,
+        postalCode: undefined,
+        state: undefined,
+      },
+      token: "mocked_token",
+    });
   });
 });
