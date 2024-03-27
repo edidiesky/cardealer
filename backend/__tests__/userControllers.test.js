@@ -1,9 +1,6 @@
 import { registerUser } from "../controllers/userControllers";
 import User from "../models/User";
-import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import asyncHandler from "express-async-handler";
-// jest.mock("express-async-handler");
 jest.mock("../models/User");
 jest.mock("jsonwebtoken", () => ({
   sign: jest.fn(() => "mocked_token"),
@@ -39,5 +36,7 @@ describe("register User", () => {
     jest.spyOn(User, "create").mockResolvedValueOnce(mockUserResponse);
 
    await registerUser(MockRequest, MockResponse);
+   expect(MockResponse.status).toHaveBeenCalled()
+   expect(MockResponse.status).toHaveBeenCalledWith(300);
   });
 });

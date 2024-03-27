@@ -57,7 +57,7 @@ const registerUser = asyncHandler(async (req, res) => {
     postalCode: user?.postalCode,
   };
 
-  console.log(user, 'user')
+  // console.log(user, 'user')
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ user, token });
