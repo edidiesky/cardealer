@@ -22,6 +22,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
   const salt = await bcrypt.genSalt(10);
   const hashedpassword = await bcrypt.hash(req.body.password, salt);
+  // console.log(hashedpassword, 'password')
   const Tempuser = {
     email,
     firstname,
@@ -55,6 +56,8 @@ const registerUser = asyncHandler(async (req, res) => {
     state: user?.state,
     postalCode: user?.postalCode,
   };
+
+  console.log(user, 'user')
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ user, token });
