@@ -22,6 +22,9 @@ const MockRequest = {
   },
 };
 
+afterEach(() => {
+  jest.restoreAllMocks();
+});
 describe("register User", () => {
   it("should create a user", async () => {
     const mockUserResponse = {
@@ -52,5 +55,22 @@ describe("register User", () => {
       },
       token: "mocked_token",
     });
+  });
+
+  it("should throw a 404 error when the field of the body are empty", async () => {
+     const MockRequest = {
+       body: {},
+     };
+
+     // Use await to wait for the asynchronous operation to complete
+     await expect(registerUser(MockRequest, MockResponse)).rejects.toThrow(
+       "Please fill in the valid credentails"
+     );
+
+     // Assert the response status and JSON
+     expect(MockResponse.status).toHaveBeenCalledWith(404);
+     expect(MockResponse.json).toHaveBeenCalledWith({
+       message: "Please fill in the valid credentails",
+     });
   });
 });

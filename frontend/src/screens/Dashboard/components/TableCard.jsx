@@ -32,9 +32,10 @@ export default function TableCards({ x, type }) {
   };
 
   // delete user function
-  const handleDeleteUser = () => {
+  const handleDeleteUser=(x)=> {
     dispatch(getUser(x));
-  };
+  }
+
 
   // edit user function
   const handleEditUser = () => {

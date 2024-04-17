@@ -10,6 +10,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const { firstname, lastname, email, password, phone, country } = req.body;
   //
   if (!firstname || !lastname || !email || !password) {
+    console.log("Empty credentials detected");
     res.status(404);
     throw new Error("Please fill in the valid credentails");
   }
@@ -17,6 +18,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const userExist = await User.findOne({ email });
 
   if (userExist) {
+    console.log("Empty credentials detected");
     res.status(404);
     throw new Error("The user does exist");
   }
