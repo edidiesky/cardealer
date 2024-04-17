@@ -51,9 +51,9 @@ export const getAllProduct = createAsyncThunk(
       if (limit) {
         productUrl = productUrl + `?limit=${limit}`;
       }
-      if (product.search !== '') {
-        productUrl = productUrl + `&search=${product.search}`;
-      }
+      // if (product.search !== '') {
+      //   productUrl = productUrl + `&search=${product.search}`;
+      // }
       const { data } = await axios.get(productUrl, config);
       return data;
     } catch (error) {
