@@ -24,7 +24,7 @@ const LayoutWrapper = styled.div`
         height: 100%;
         position: sticky;
         overflow: auto;
-        width: 280px;
+        width: 320px;
         @media (max-width: 580px) {
          display: none;
         }
